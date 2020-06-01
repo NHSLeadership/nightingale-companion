@@ -6,7 +6,7 @@
 * Author: Nick Summerfield, NHS Leadership Academy
 * License: GPL v3
 * Requires at least: 5.0
-* Tested up to: 5.3.2
+* Tested up to: 5.4
 * Version: 1.0
 *
 * @package nightingale-companion
