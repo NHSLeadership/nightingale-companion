@@ -28,9 +28,9 @@ function lafeatures_load_textdomain() {
 
 
 /**
- * Checks if the Gutenberg plugin is activated
+ * Checks if the Nightingale theme is activated
  *
- * If the Gutenberg plugin is not active, then don't allow the
+ * If the Nightingale theme is not active, then don't allow the
  * activation of this plugin.
  *
  * @since 1.0.0
@@ -46,3 +46,6 @@ function nightingale_companion_activate() {
 }
 
 register_activation_hook( __FILE__, 'nightingale_companion_activate' );
+
+require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
+
