@@ -49,3 +49,4 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 
+require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );
