@@ -96,3 +96,6 @@ if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the em
 
 	add_action( 'wp_footer', 'nhsblocks_emergency_footer' );
 }
+
+
+require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
