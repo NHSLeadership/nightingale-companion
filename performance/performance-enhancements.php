@@ -24,6 +24,10 @@ if ( $nightingale_companion_options['defer_js_3'] === 'defer_js_3' ) {
 // set cache headers.
 	require_once( plugin_dir_path( __FILE__ ) . 'cacheheaders.php' );
 
+//lazyloading
+if ( $nightingale_companion_options['enable_lazyloading_5'] === 'enable_lazyloading_5' ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'lazyload.php' );
+}
 
 // disableemojis.
 if ( $nightingale_companion_options['disable_emojis_6'] === 'disable_emojis_6' ) {
