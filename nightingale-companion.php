@@ -50,3 +50,14 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
 require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );
+
+require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
+if ( get_theme_mod( 'emergency_on' ) === 'yes' ) {
+	// Add in the emergency header to the top of the display
+	add_filter('get_header', 'nightingale_emergency_header');
+
+	function nightingale_emergency_header( $content ) {
+		//get your data
+		require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
+	}
+}
