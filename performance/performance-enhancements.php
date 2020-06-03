@@ -25,14 +25,6 @@ if ( $nightingale_companion_options['defer_js_3'] === 'defer_js_3' ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'cacheheaders.php' );
 
 
-/*
- * Clean up the WordPress head.
- */
-
-// remove header links.
-add_action( 'init', 'nightingale_head_cleanup' );
-
-
 // disableemojis.
 if ( $nightingale_companion_options['disable_emojis_6'] === 'disable_emojis_6' ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'disable_emojis.php' );

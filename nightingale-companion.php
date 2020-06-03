@@ -41,11 +41,28 @@ function nightingale_companion_activate() {
 		// Throw an error in the WordPress admin console.
 		$error_message = '<p style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Oxygen-Sans,Ubuntu,Cantarell,\'Helvetica Neue\',sans-serif;font-size: 13px;line-height: 1.5;color:#444;">' . esc_html__( 'This plugin requires ', 'nightingale-companion' ) . '<a href="' . esc_url( 'https://en-gb.wordpress.org/themes/nightingale/' ) . '">Nightingale</a>' . esc_html__( ' theme to be installed and active.', 'nightingale-companion' ) . '</p>';
 		die( $error_message ); // WPCS: XSS ok.
+	} else {
+		do_action( 'nightingale_companion_default_options' );
 	}
 }
 
 register_activation_hook( __FILE__, 'nightingale_companion_activate' );
 
+function nightingale_companion_default_values() {
+	$defaults = array(
+		'retina_images_0' => 'retina_images_0', // EnableRetina Images
+		'load_css_1' => 'load_css_1', // Enable Load CSS
+		'instantpage_2' => 'instantpage_2', // Enable InstantPage
+		'defer_js_3' => 'defer_js_3', // Enable Defer JS
+		'set_browser_cache_4' => '43200', // Set Browser Cache to 12 hours
+		'enable_lazyloading_5' => 'enable_lazyloading_5', // Enable LazyLoading
+		'disable_emojis_6' => 'disable_emojis_6', // Disable Emojis
+		'cleanup_wp_header_7' => 'cleanup_wp_header_7', // Cleanup WP meta tags
+	);
+	add_option('nightingale_companion_option_name', $defaults );
+}
+
+add_action( 'nightingale_companion_default_options', 'nightingale_companion_default_values' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
 $nightingale_companion_options = get_option( 'nightingale_companion_option_name' ); // Array of All Options set for this plugin.

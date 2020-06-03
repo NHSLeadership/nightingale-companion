@@ -23,3 +23,10 @@ function nightingale_head_cleanup() {
 	remove_action( 'wp_head', 'wp_generator' );                             // WP version.
 }
 
+
+/*
+ * Clean up the WordPress head.
+ */
+
+// remove header links.
+add_action( 'init', 'nightingale_head_cleanup' );
