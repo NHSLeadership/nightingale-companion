@@ -23,26 +23,25 @@ add_action( 'init', 'lafeatures_load_textdomain' );
  * Set the domain to be used for translations
  */
 function lafeatures_load_textdomain() {
-    load_plugin_textdomain( 'lafeatures', false, basename( __DIR__ ) . '/languages' );
+	load_plugin_textdomain( 'lafeatures', false, basename( __DIR__ ) . '/languages' );
 }
 
 
 /**
  * Checks if the Nightingale theme is activated
- *
  * If the Nightingale theme is not active, then don't allow the
  * activation of this plugin.
  *
  * @since 1.0.0
  */
 function nightingale_companion_activate() {
-    if ( current_user_can( 'activate_plugins' ) && ! ( 'Nightingale' == wp_get_theme() ) ) {
-        // Deactivate the plugin.
-        deactivate_plugins( plugin_basename( __FILE__ ) );
-        // Throw an error in the WordPress admin console.
-        $error_message = '<p style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Oxygen-Sans,Ubuntu,Cantarell,\'Helvetica Neue\',sans-serif;font-size: 13px;line-height: 1.5;color:#444;">' . esc_html__( 'This plugin requires ', 'nightingale-companion' ) . '<a href="' . esc_url( 'https://en-gb.wordpress.org/themes/nightingale/' ) . '">Nightingale</a>' . esc_html__( ' theme to be installed and active.', 'nightingale-companion' ) . '</p>';
-        die( $error_message ); // WPCS: XSS ok.
-    }
+	if ( current_user_can( 'activate_plugins' ) && ! ( 'Nightingale' == wp_get_theme() ) ) {
+		// Deactivate the plugin.
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		// Throw an error in the WordPress admin console.
+		$error_message = '<p style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Oxygen-Sans,Ubuntu,Cantarell,\'Helvetica Neue\',sans-serif;font-size: 13px;line-height: 1.5;color:#444;">' . esc_html__( 'This plugin requires ', 'nightingale-companion' ) . '<a href="' . esc_url( 'https://en-gb.wordpress.org/themes/nightingale/' ) . '">Nightingale</a>' . esc_html__( ' theme to be installed and active.', 'nightingale-companion' ) . '</p>';
+		die( $error_message ); // WPCS: XSS ok.
+	}
 }
 
 register_activation_hook( __FILE__, 'nightingale_companion_activate' );
@@ -52,12 +51,27 @@ require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
-if ( get_theme_mod( 'emergency_on' ) === 'yes' ) {
+if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
 	// Add in the emergency header to the top of the display
-	add_filter('get_header', 'nightingale_emergency_header');
+	add_filter( 'get_header', 'nightingale_emergency_header' );
 
 	function nightingale_emergency_header( $content ) {
 		//get your data
 		require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
 	}
+
+	function nhsblocks_emergency_footer() {
+		echo "<script>
+	    const emergencyBlock = document.querySelector('.nhsuk-global-alert');
+	    if ( ( emergencyBlock ) ) { 
+	        matches = emergencyBlock.matches ? emergencyBlock.matches('.nhsuk-global-alert') : emergencyBlock.msMatchesSelector('.nhsuk-global-alert');
+		    if ( matches === true ) {
+			    const header = document.querySelector('header');
+			    	jQuery('.nhsuk-global-alert').insertAfter( header );
+		    }
+	    }	
+	</script>";
+	}
+
+	add_action( 'wp_footer', 'nhsblocks_emergency_footer' );
 }

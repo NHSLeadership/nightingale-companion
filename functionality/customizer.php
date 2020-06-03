@@ -33,7 +33,7 @@ function nightingale_companion_customize_register( $wp_customize ) {
 		array(
 			'label'       => esc_html__( 'Show an emergency alert?', 'nightingale' ),
 			'section'     => 'section_emergency',
-			'description' => esc_html__( 'this setting is ignored if you have uploaded a custom logo above. Please note the NHS logo is a trademark and should only be used by organisations that have permission to use it as part of their branding.', 'nightingale' ),
+			'description' => esc_html__( 'Do you wish to have an emergency banner showing sitewide? This should not be standard practice, this banner is for exceptional circumstances ONLY', 'nightingale' ),
 			'type'        => 'radio',
 			'choices'     => array(
 				'yes' => esc_html__( 'Yes', 'nightingale' ),
@@ -101,6 +101,30 @@ function nightingale_companion_customize_register( $wp_customize ) {
 			'type'    => 'text',
 		)
 	);
+
+	/*
+	 * Emergency Date Options
+	 */
+	$wp_customize->add_setting(
+		'emergency_date_on', array(
+			              'default'           => 'no',
+			              'sanitize_callback' => 'esc_attr',
+		              )
+	);
+
+	$wp_customize->add_control(
+		'emergency_date_on',
+		array(
+			'label'       => esc_html__( 'Show last updated?', 'nightingale' ),
+			'section'     => 'section_emergency',
+			'description' => esc_html__( 'Do you wish to show the date this message was last updated?', 'nightingale' ),
+			'type'        => 'radio',
+			'choices'     => array(
+				'yes' => esc_html__( 'Yes', 'nightingale' ),
+				'no'  => esc_html__( 'No', 'nightingale' ),
+			),
+		),
+		);
 	$wp_customize->add_setting(
 		'emergency_date',
 		array(
