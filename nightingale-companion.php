@@ -58,7 +58,7 @@ function nightingale_companion_default_values() {
 		'enable_lazyloading_5' => 'enable_lazyloading_5', // Enable LazyLoading
 		'disable_emojis_6' => 'disable_emojis_6', // Disable Emojis
 		'cleanup_wp_header_7' => 'cleanup_wp_header_7', // Cleanup WP meta tags
-		'minify_8' => 'minify_8', // Move Scripts and Styles to Footer
+		'minify_8' => 'minify_8', // Basic Minification of Output
 	);
 	add_option('nightingale_companion_option_name', $defaults );
 }
