@@ -35,6 +35,7 @@ if  ( ( isset( $nightingale_companion_options['disable_emojis_6'] ) )&& ($nighti
 if  ( ( isset( $nightingale_companion_options['cleanup_wp_header_7'] ) )&& ($nightingale_companion_options['cleanup_wp_header_7'] === 'cleanup_wp_header_7' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'clean-wp-headers.php' );
 }
-if  ( ( isset( $nightingale_companion_options['move_to_footer_8'] ) )&& ($nightingale_companion_options['move_to_footer_8'] === 'move_to_footer_8' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'scripts-to-footer.php' );
+
+if  ( ( !is_admin() ) && ( isset( $nightingale_companion_options['minify_8'] ) )&& ($nightingale_companion_options['minify_8'] === 'minify_8' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'basic-minify.php' );
 }
