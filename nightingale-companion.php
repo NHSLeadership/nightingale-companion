@@ -66,7 +66,7 @@ add_action( 'nightingale_companion_default_options', 'nightingale_companion_defa
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
 $nightingale_companion_options = get_option( 'nightingale_companion_option_name' ); // Array of All Options set for this plugin.
-if ( $nightingale_companion_options['retina_images_0'] === 'retina_images_0' ) {
+if  ( ( isset( $nightingale_companion_options['retina_images_0'] ) )&& ($nightingale_companion_options['retina_images_0'] === 'retina_images_0' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 }
 require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );
