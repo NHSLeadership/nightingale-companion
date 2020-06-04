@@ -58,6 +58,7 @@ function nightingale_companion_default_values() {
 		'enable_lazyloading_5' => 'enable_lazyloading_5', // Enable LazyLoading
 		'disable_emojis_6' => 'disable_emojis_6', // Disable Emojis
 		'cleanup_wp_header_7' => 'cleanup_wp_header_7', // Cleanup WP meta tags
+		'move_to_footer_8' => 'move_to_footer_8', // Move Scripts and Styles to Footer
 	);
 	add_option('nightingale_companion_option_name', $defaults );
 }
@@ -66,7 +67,7 @@ add_action( 'nightingale_companion_default_options', 'nightingale_companion_defa
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
 $nightingale_companion_options = get_option( 'nightingale_companion_option_name' ); // Array of All Options set for this plugin.
-if ( $nightingale_companion_options['retina_images_0'] === 'retina_images_0' ) {
+if  ( ( isset( $nightingale_companion_options['retina_images_0'] ) )&& ($nightingale_companion_options['retina_images_0'] === 'retina_images_0' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 }
 require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );

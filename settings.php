@@ -125,6 +125,13 @@ class NightingaleCompanion {
 			'nightingale-companion-admin', // page
 			'nightingale_companion_setting_section' // section
 		);
+		add_settings_field(
+			'move_to_footer_8', // id
+			'Scripts and Styles to Footer', // title
+			array( $this, 'move_to_footer_8_callback' ), // callback
+			'nightingale-companion-admin', // page
+			'nightingale_companion_setting_section' // section
+		);
 	}
 
 	public function nightingale_companion_sanitize($input) {
@@ -159,6 +166,10 @@ class NightingaleCompanion {
 
 		if ( isset( $input['cleanup_wp_header_7'] ) ) {
 			$sanitary_values['cleanup_wp_header_7'] = $input['cleanup_wp_header_7'];
+		}
+
+		if ( isset( $input['move_to_footer_8'] ) ) {
+			$sanitary_values['move_to_footer_8'] = $input['move_to_footer_8'];
 		}
 
 		return $sanitary_values;
@@ -224,6 +235,14 @@ class NightingaleCompanion {
 		);
 	}
 
+	public function move_to_footer_8_callback() {
+		printf(
+			'<input type="checkbox" name="nightingale_companion_option_name[move_to_footer_8]" id="move_to_footer_8" value="move_to_footer_8" %s> <label for="move_to_footer_8">Move all scripts and styles to footer (improves visible loading)?</label>',
+			( isset( $this->nightingale_companion_options['move_to_footer_8'] ) && $this->nightingale_companion_options['move_to_footer_8'] === 'move_to_footer_8' ) ? 'checked' : ''
+		);
+	}
+
+
 }
 if ( is_admin() )
 	$nightingale_companion = new NightingaleCompanion();
@@ -239,4 +258,6 @@ if ( is_admin() )
  * $enable_lazyloading_5 = $nightingale_companion_options['enable_lazyloading_5']; // Enable LazyLoading?
  * $disable_emojis_6 = $nightingale_companion_options['disable_emojis_6']; // Disable Emojis?
  * $cleanup_wp_header_7 = $nightingale_companion_options['cleanup_wp_header_7']; // Cleanup WP meta tags?
+ * $move_to_footer_8 = $nightingale_companion_options['move_to_footer_8']; // Move scripts/styles to footer?
+ *
  */
