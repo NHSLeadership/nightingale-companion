@@ -1,5 +1,5 @@
 {
-  "name": "nhsla/nightingale-companion",
+  "name": "nhsleadership/nightingale-companion",
   "description": "Companion plugin for Nightingale theme",
   "repositories":[{"type":"composer","url":"https://wpackagist.org"}],
   "type": "wordpress-plugin",
