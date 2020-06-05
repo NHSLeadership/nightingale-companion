@@ -33,12 +33,18 @@ class NightingaleCompanion {
 	public function nightingale_companion_create_admin_page() {
 		$this->nightingale_companion_options = get_option( 'nightingale_companion_option_name' ); ?>
 
+		<?php settings_errors(); ?>
+
+
+
+
+
 		<div class="wrap">
 			<h2>Nightingale Companion</h2>
 			<div class="notice notice-info"><p>Settings to facilitate the Nightingale Companion plugin. Performance Settings here mean you can optimise your site in one easy bang.</p><p>The defaults when you install the plugin will make your site super speedy and reliable, so you <b>shouldn't need to modify</b> anything...</p></div>
 			<?php settings_errors(); ?>
 
-			<form method="post" action="options.php">
+			<form method="post" action="options.php" class="maketabs">
 				<?php
 				settings_fields( 'nightingale_companion_option_group' );
 				do_settings_sections( 'nightingale-companion-admin' );
@@ -47,6 +53,7 @@ class NightingaleCompanion {
 			</form>
 		</div>
 	<?php }
+
 
 	public function nightingale_companion_page_init() {
 		register_setting(
@@ -57,10 +64,26 @@ class NightingaleCompanion {
 
 		add_settings_section(
 			'nightingale_companion_setting_section', // id
-			'Settings', // title
+			'Display', // title
 			array( $this, 'nightingale_companion_section_info' ), // callback
 			'nightingale-companion-admin' // page
 		);
+
+		add_settings_section(
+			'nightingale_companion_setting_performance', // id
+			'Performance', // title
+			array( $this, 'nightingale_companion_performance_info' ), // callback
+			'nightingale-companion-admin' // page
+		);
+
+
+		add_settings_section(
+			'nightingale_companion_setting_function', // id
+			'Functionality', // title
+			array( $this, 'nightingale_companion_function_info' ), // callback
+			'nightingale-companion-admin' // page
+		);
+
 
 		add_settings_field(
 			'retina_images_0', // id
@@ -75,7 +98,7 @@ class NightingaleCompanion {
 			'Load CSS', // title
 			array( $this, 'load_css_1_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
 		);
 
 		add_settings_field(
@@ -83,7 +106,7 @@ class NightingaleCompanion {
 			'InstantPage', // title
 			array( $this, 'instantpage_2_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
 		);
 
 		add_settings_field(
@@ -91,7 +114,7 @@ class NightingaleCompanion {
 			'Defer JS', // title
 			array( $this, 'defer_js_3_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
 		);
 
 		add_settings_field(
@@ -99,7 +122,7 @@ class NightingaleCompanion {
 			'Set Browser Cache', // title
 			array( $this, 'set_browser_cache_4_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
 		);
 
 		add_settings_field(
@@ -107,7 +130,7 @@ class NightingaleCompanion {
 			'Enable LazyLoading?', // title
 			array( $this, 'enable_lazyloading_5_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
 		);
 
 		add_settings_field(
@@ -123,14 +146,23 @@ class NightingaleCompanion {
 			'Cleanup WordPress Meta Tags?', // title
 			array( $this, 'cleanup_wp_header_7_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
 		);
+
 		add_settings_field(
 			'minify_8', // id
-			'Scripts and Styles to Footer', // title
+			'Compress HTML output?', // title
 			array( $this, 'minify_8_callback' ), // callback
 			'nightingale-companion-admin', // page
-			'nightingale_companion_setting_section' // section
+			'nightingale_companion_setting_performance' // section
+		);
+
+		add_settings_field(
+			'meta_9', // id
+			'Use Excerpts as Meta Description?', // title
+			array( $this, 'meta_9_callback' ), // callback
+			'nightingale-companion-admin', // page
+			'nightingale_companion_setting_function' // section
 		);
 	}
 
@@ -172,6 +204,10 @@ class NightingaleCompanion {
 			$sanitary_values['minify_8'] = $input['minify_8'];
 		}
 
+		if ( isset( $input['meta_9'] ) ) {
+			$sanitary_values['meta_9'] = $input['meta_9'];
+		}
+
 		return $sanitary_values;
 	}
 
@@ -209,7 +245,7 @@ class NightingaleCompanion {
 
 	public function set_browser_cache_4_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="nightingale_companion_option_name[set_browser_cache_4]" id="set_browser_cache_4" value="%s">',
+			'<input class="regular-text" type="text" size="6" style="width: 5rem;" name="nightingale_companion_option_name[set_browser_cache_4]" id="set_browser_cache_4" value="%s"> <label for="set_browser_cache_4">Set Browser Cache duration in seconds. 300 = 5 minutes, 43206 = 12 hours. Think very carefully before setting to a higher value than 12 hours!</label>',
 			isset( $this->nightingale_companion_options['set_browser_cache_4'] ) ? esc_attr( $this->nightingale_companion_options['set_browser_cache_4']) : '43200'
 		);
 	}
@@ -237,8 +273,15 @@ class NightingaleCompanion {
 
 	public function minify_8_callback() {
 		printf(
-			'<input type="checkbox" name="nightingale_companion_option_name[minify_8]" id="minify_8" value="minify_8" %s> <label for="minify_8">Basic compression of output html?</label>',
+			'<input type="checkbox" name="nightingale_companion_option_name[minify_8]" id="minify_8" value="minify_8" %s> <label for="minify_8">Basic compression of output html (removes white space in the raw html that is sent to the browser)?</label>',
 			( isset( $this->nightingale_companion_options['minify_8'] ) && $this->nightingale_companion_options['minify_8'] === 'minify_8' ) ? 'checked' : ''
+		);
+	}
+
+	public function meta_9_callback() {
+		printf(
+			'<input type="checkbox" name="nightingale_companion_option_name[meta_9]" id="meta_9" value="meta_9" %s> <label for="meta_9">Activate to use page/post excerpts as meta description - untick if you are using an SEO plugin which covers this.</label>',
+			( isset( $this->nightingale_companion_options['meta_9'] ) && $this->nightingale_companion_options['meta_9'] === 'meta_9' ) ? 'checked' : ''
 		);
 	}
 
@@ -259,5 +302,6 @@ if ( is_admin() )
  * $disable_emojis_6 = $nightingale_companion_options['disable_emojis_6']; // Disable Emojis?
  * $cleanup_wp_header_7 = $nightingale_companion_options['cleanup_wp_header_7']; // Cleanup WP meta tags?
  * $minify_8 = $nightingale_companion_options['minify_8']; // Basic compression of output html?
+ * $meta_9 = $nightingale_companion_options['meta_9']; // simple meta tags
  *
  */
