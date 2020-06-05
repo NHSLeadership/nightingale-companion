@@ -59,7 +59,8 @@ function nightingale_companion_default_values() {
 		'disable_emojis_6' => 'disable_emojis_6', // Disable Emojis
 		'cleanup_wp_header_7' => 'cleanup_wp_header_7', // Cleanup WP meta tags
 		'minify_8' => 'minify_8', // Basic Minification of Output
-		'meta_9' => 'meta_9' // Simple Meta Description Population
+		'meta_9' => 'meta_9', // Simple Meta Description Population
+        'scripts_in_footer_10' => 'scripts_in_footer_10' // Sending Scripts to the Footer
 	);
 	add_option('nightingale_companion_option_name', $defaults );
 }
