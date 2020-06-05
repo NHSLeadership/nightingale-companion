@@ -75,8 +75,15 @@ class NightingaleCompanion {
 			array( $this, 'nightingale_companion_performance_info' ), // callback
 			'nightingale-companion-admin' // page
 		);
-		register_setting('nightingale_companion_section_info', 'nightingale_companion_section_info');
-		register_setting('nightingale_companion_performance_info', 'nightingale_companion_performance_info');
+
+
+		add_settings_section(
+			'nightingale_companion_setting_function', // id
+			'Functionality', // title
+			array( $this, 'nightingale_companion_function_info' ), // callback
+			'nightingale-companion-admin' // page
+		);
+
 
 		add_settings_field(
 			'retina_images_0', // id
@@ -149,6 +156,14 @@ class NightingaleCompanion {
 			'nightingale-companion-admin', // page
 			'nightingale_companion_setting_performance' // section
 		);
+
+		add_settings_field(
+			'meta_9', // id
+			'Use Excerpts as Meta Description?', // title
+			array( $this, 'meta_9_callback' ), // callback
+			'nightingale-companion-admin', // page
+			'nightingale_companion_setting_function' // section
+		);
 	}
 
 	public function nightingale_companion_sanitize($input) {
@@ -187,6 +202,10 @@ class NightingaleCompanion {
 
 		if ( isset( $input['minify_8'] ) ) {
 			$sanitary_values['minify_8'] = $input['minify_8'];
+		}
+
+		if ( isset( $input['meta_9'] ) ) {
+			$sanitary_values['meta_9'] = $input['meta_9'];
 		}
 
 		return $sanitary_values;
@@ -259,6 +278,13 @@ class NightingaleCompanion {
 		);
 	}
 
+	public function meta_9_callback() {
+		printf(
+			'<input type="checkbox" name="nightingale_companion_option_name[meta_9]" id="meta_9" value="meta_9" %s> <label for="meta_9">Activate to use page/post excerpts as meta description - untick if you are using an SEO plugin which covers this.</label>',
+			( isset( $this->nightingale_companion_options['meta_9'] ) && $this->nightingale_companion_options['meta_9'] === 'meta_9' ) ? 'checked' : ''
+		);
+	}
+
 
 }
 if ( is_admin() )
@@ -276,5 +302,6 @@ if ( is_admin() )
  * $disable_emojis_6 = $nightingale_companion_options['disable_emojis_6']; // Disable Emojis?
  * $cleanup_wp_header_7 = $nightingale_companion_options['cleanup_wp_header_7']; // Cleanup WP meta tags?
  * $minify_8 = $nightingale_companion_options['minify_8']; // Basic compression of output html?
+ * $meta_9 = $nightingale_companion_options['meta_9']; // simple meta tags
  *
  */

@@ -75,7 +75,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancement
 require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
 if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
 	// Add in the emergency header to the top of the display
-	add_filter( 'get_header', 'nightingale_emergency_header' );
+	add_filter( 'wp_footer', 'nightingale_emergency_header' );
 
 	function nightingale_emergency_header( $content ) {
 		//get your data
@@ -98,6 +98,9 @@ if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the em
 	add_action( 'wp_footer', 'nhsblocks_emergency_footer' );
 }
 
+if  ( ( isset( $nightingale_companion_options['meta_9'] ) )&& ($nightingale_companion_options['meta_9'] === 'meta_9' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'functionality/simple-meta.php' );
+}
 
 require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
 
