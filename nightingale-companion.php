@@ -100,3 +100,11 @@ if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the em
 
 
 require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
+
+function nightingale_companion_plugin_action_links( $links ) {
+	return array_merge( array(
+		                    '<a href="' . get_admin_url(null,'options-general.php?page=nightingale-companion') . '">' . __( 'Settings' ) . '</a>'
+	                    ), $links );
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'nightingale_companion_plugin_action_links' );
+
