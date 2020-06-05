@@ -48,4 +48,4 @@ add_filter( 'style_loader_tag', 'nightingale_loadcss_files', 9999, 3 );
 
 // Down and dirty trick to load scripts BEFORE css to make loadCSS work properly.
 remove_action( 'wp_head', 'wp_print_styles', 8 );
-add_action( 'wp_head', 'wp_print_styles', 10 );
+add_action( 'wp_footer', 'wp_print_styles', 10 );

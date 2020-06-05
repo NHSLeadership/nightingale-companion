@@ -17,13 +17,13 @@
  *
  * @link https://developer.wordpress.org/reference/functions/load_plugin_textdomain/
  */
-add_action( 'init', 'lafeatures_load_textdomain' );
+add_action( 'init', 'nightingale_companion_load_textdomain' );
 
 /**
  * Set the domain to be used for translations
  */
-function lafeatures_load_textdomain() {
-	load_plugin_textdomain( 'lafeatures', false, basename( __DIR__ ) . '/languages' );
+function nightingale_companion_load_textdomain() {
+	load_plugin_textdomain( 'nightingale_companion', false, basename( __DIR__ ) . '/languages' );
 }
 
 
@@ -59,11 +59,11 @@ function nightingale_companion_default_values() {
 		'disable_emojis_6' => 'disable_emojis_6', // Disable Emojis
 		'cleanup_wp_header_7' => 'cleanup_wp_header_7', // Cleanup WP meta tags
 		'minify_8' => 'minify_8', // Basic Minification of Output
+		'meta_9' => 'meta_9' // Simple Meta Description Population
 	);
 	add_option('nightingale_companion_option_name', $defaults );
 }
 
-add_action( 'nightingale_companion_default_options', 'nightingale_companion_default_values' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
 $nightingale_companion_options = get_option( 'nightingale_companion_option_name' ); // Array of All Options set for this plugin.
