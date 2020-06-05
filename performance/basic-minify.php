@@ -38,7 +38,6 @@ class WP_HTML_Compression
 
 		$savings = round($savings, 2);
 
-		return '<!--HTML udah dikompress, lumayan tuh berkurang '.$savings.'%. Tadinya '.$raw.' bytes, sekarang cuma '.$compressed.' bytes-->';
 	}
 	protected function minifyHTML($html)
 	{
