@@ -8,11 +8,11 @@
  */
 
 /**
-* Load in the instantpage javascript file to header inline.
-*/
+ * Load in the instantpage javascript file to header inline.
+ */
 function nightingale_load_instantpage() {
-wp_register_script( 'instantpage', plugins_url('js/instantpage.js', __FILE__ ) , array(), '02062020', false ); // Register instantpage javascript function.
-wp_enqueue_script( 'instantpage', plugins_url('js/instantpage.js', __FILE__ ) , array(), '02062020', false ); // Queue it up.
+	wp_register_script( 'instantpage', plugins_url( 'js/instantpage.js', __FILE__ ), array(), '02062020', false ); // Register instantpage javascript function.
+	wp_enqueue_script( 'instantpage', plugins_url( 'js/instantpage.js', __FILE__ ), array(), '02062020', false ); // Queue it up.
 
 }
 

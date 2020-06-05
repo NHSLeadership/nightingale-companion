@@ -23,9 +23,9 @@ function nightingale_companion_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_setting(
 		'emergency_on', array(
-			              'default'           => 'no',
-			              'sanitize_callback' => 'esc_attr',
-		              )
+			'default'           => 'no',
+			'sanitize_callback' => 'esc_attr',
+		)
 	);
 
 	$wp_customize->add_control(
@@ -107,9 +107,9 @@ function nightingale_companion_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_setting(
 		'emergency_date_on', array(
-			              'default'           => 'no',
-			              'sanitize_callback' => 'esc_attr',
-		              )
+			'default'           => 'no',
+			'sanitize_callback' => 'esc_attr',
+		)
 	);
 
 	$wp_customize->add_control(

@@ -43,12 +43,13 @@ add_action( 'plugins_loaded', '_wp_lazy_loading_initialize_filters', 1 );
  * If merged to core, this should instead happen directly in
  * {@see get_avatar()}, as a default attribute.
  *
+ * @param string $avatar Avatar image tag markup.
+ *
+ * @return string Modified tag.
  * @since 1.0
  * @access private
  * @see get_avatar()
  *
- * @param string $avatar Avatar image tag markup.
- * @return string Modified tag.
  */
 function _wp_lazy_loading_add_attribute_to_avatar( $avatar ) {
 	if ( wp_lazy_loading_enabled( 'img', 'get_avatar' ) && false === strpos( $avatar, ' loading=' ) ) {
@@ -64,12 +65,13 @@ function _wp_lazy_loading_add_attribute_to_avatar( $avatar ) {
  * If merged to core, this should instead happen directly in
  * {@see wp_get_attachment_image()}, as a default attribute.
  *
+ * @param array $attr Associative array of attributes for the image tag.
+ *
+ * @return array Modified attributes.
  * @since 1.0
  * @access private
  * @see wp_get_attachment_image()
  *
- * @param array $attr Associative array of attributes for the image tag.
- * @return array Modified attributes.
  */
 function _wp_lazy_loading_add_attribute_to_attachment_image( $attr ) {
 	if ( wp_lazy_loading_enabled( 'img', 'wp_get_attachment_image' ) && ! isset( $attr['loading'] ) ) {
@@ -85,11 +87,12 @@ function _wp_lazy_loading_add_attribute_to_attachment_image( $attr ) {
 /**
  * Determine whether to add the `loading` attribute to the specified tag in the specified context.
  *
+ * @param string $tag_name The tag name.
+ * @param string $context Additional context, like the current filter name or the function name from where this was called.
+ *
+ * @return boolean Whether to add the attribute.
  * @since (TBD)
  *
- * @param string  $tag_name The tag name.
- * @param string  $context Additional context, like the current filter name or the function name from where this was called.
- * @return boolean Whether to add the attribute.
  */
 function wp_lazy_loading_enabled( $tag_name, $context ) {
 	// By default add to all 'img' tags.
@@ -99,11 +102,12 @@ function wp_lazy_loading_enabled( $tag_name, $context ) {
 	/**
 	 * Filters whether to add the `loading` attribute to the specified tag in the specified context.
 	 *
+	 * @param boolean $default Default value.
+	 * @param string $tag_name The tag name.
+	 * @param string $context Additional context, like the current filter name or the function name from where this was called.
+	 *
 	 * @since (TBD)
 	 *
-	 * @param boolean $default Default value.
-	 * @param string  $tag_name The tag name.
-	 * @param string  $context Additional context, like the current filter name or the function name from where this was called.
 	 */
 	return (bool) apply_filters( 'wp_lazy_loading_enabled', $default, $tag_name, $context );
 }
@@ -113,14 +117,15 @@ function wp_lazy_loading_enabled( $tag_name, $context ) {
  *
  * This function adds `srcset`, `sizes`, and `loading` attributes to `img` HTML tags.
  *
+ * @param string $content The HTML content to be filtered.
+ * @param string $context Optional. Additional context to pass to the filters. Defaults to `current_filter()` when not set.
+ *
+ * @return string Converted content with images modified.
  * @since (TBD)
  *
  * @see wp_img_tag_add_loading_attr()
  * @see wp_img_tag_add_srcset_and_sizes_attr()
  *
- * @param string $content The HTML content to be filtered.
- * @param string $context Optional. Additional context to pass to the filters. Defaults to `current_filter()` when not set.
- * @return string Converted content with images modified.
  */
 function wp_filter_content_tags( $content, $context = null ) {
 	if ( null === $context ) {
@@ -192,11 +197,12 @@ function wp_filter_content_tags( $content, $context = null ) {
 /**
  * Adds `loading` attribute to an existing `img` HTML tag.
  *
+ * @param string $image The HTML `img` tag where the attribute should be added.
+ * @param string $context Additional context to pass to the filters.
+ *
+ * @return string Converted `img` tag with `loading` attribute added.
  * @since (TBD)
  *
- * @param string $image   The HTML `img` tag where the attribute should be added.
- * @param string $context Additional context to pass to the filters.
- * @return string Converted `img` tag with `loading` attribute added.
  */
 function wp_img_tag_add_loading_attr( $image, $context ) {
 	/**
@@ -205,11 +211,12 @@ function wp_img_tag_add_loading_attr( $image, $context ) {
 	 * Returning `false` or an empty string will not add the attribute.
 	 * Returning `true` will add the default value.
 	 *
+	 * @param string $value The 'loading' attribute value, defaults to `lazy`.
+	 * @param string $image The HTML 'img' element to be filtered.
+	 * @param string $context Additional context about how the function was called or where the img tag is.
+	 *
 	 * @since (TBD)
 	 *
-	 * @param string $value   The 'loading' attribute value, defaults to `lazy`.
-	 * @param string $image   The HTML 'img' element to be filtered.
-	 * @param string $context Additional context about how the function was called or where the img tag is.
 	 */
 	$value = apply_filters( 'wp_img_tag_add_loading_attr', 'lazy', $image, $context );
 
@@ -227,12 +234,13 @@ function wp_img_tag_add_loading_attr( $image, $context ) {
 /**
  * Adds `srcset` and `sizes` attributes to an existing `img` HTML tag.
  *
+ * @param string $image The HTML `img` tag where the attribute should be added.
+ * @param string $context Additional context to pass to the filters.
+ * @param int $attachment_id Image attachment ID.
+ *
+ * @return string Converted 'img' element with 'loading' attribute added.
  * @since (TBD)
  *
- * @param string $image         The HTML `img` tag where the attribute should be added.
- * @param string $context       Additional context to pass to the filters.
- * @param int    $attachment_id Image attachment ID.
- * @return string Converted 'img' element with 'loading' attribute added.
  */
 function wp_img_tag_add_srcset_and_sizes_attr( $image, $context, $attachment_id ) {
 	/**
@@ -240,17 +248,19 @@ function wp_img_tag_add_srcset_and_sizes_attr( $image, $context, $attachment_id 
 	 *
 	 * Returning anything else than `true` will not add the attributes.
 	 *
+	 * @param bool $value The filtered value, defaults to `true`.
+	 * @param string $image The HTML `img` tag where the attribute should be added.
+	 * @param string $context Additional context about how the function was called or where the img tag is.
+	 * @param int $attachment_id The image attachment ID.
+	 *
 	 * @since (TBD)
 	 *
-	 * @param bool   $value         The filtered value, defaults to `true`.
-	 * @param string $image         The HTML `img` tag where the attribute should be added.
-	 * @param string $context       Additional context about how the function was called or where the img tag is.
-	 * @param int    $attachment_id The image attachment ID.
 	 */
 	$add = apply_filters( 'wp_img_tag_add_srcset_and_sizes_attr', true, $image, $context, $attachment_id );
 
 	if ( true === $add ) {
 		$image_meta = wp_get_attachment_metadata( $attachment_id );
+
 		return wp_image_add_srcset_and_sizes( $image, $image_meta, $attachment_id );
 	}
 

@@ -1,0 +1,8 @@
+{
+  "name": "nightingale-companion",
+  "version": "1.0.0",
+  "dependencies": {},
+  "scripts": {
+    "zip": "zip -r nightingale-companion.zip ./ -x .git .gitignore *.git/* .DS_Store .package.json .package-lock.json nightingale-companion.zip README.md .wordpress-org/**\\\\* .ds_store vendor/**\\\\* node_modules/**\\* "
+  }
+}
