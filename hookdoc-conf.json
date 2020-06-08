@@ -5,12 +5,6 @@
     "readme": "./README.md"
   },
   "source": {
-    "include": [
-      "./",
-      "display",
-      "functionality",
-      "performance"
-    ],
     "includePattern": ".+\\.(php)?$"
   },
   "plugins": [
