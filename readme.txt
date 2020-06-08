@@ -41,6 +41,8 @@ enabled by default on installation but can be switched off easily via the admin 
  - Use Excerpts as Meta Description - WordPress automatically takes the first 55 words of a post or page to create an
  excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
  description tag. If you have an alternative mthod of generating this meta tag, you should disable this option.
+ - Modified the login page to use the theme design and layout (this option is not switchable at present)
+ - Adds the emergency alert header to the theme customiser (this option is not switchable at present)
 
 
 == Installation ==
