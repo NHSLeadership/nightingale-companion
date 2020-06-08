@@ -10,14 +10,15 @@
 /*
  * Modify HTTP header to add a 12 hour browser cache instruction.
  */
-function nightingale_add_header_cache($headers) {
+function nightingale_add_header_cache( $headers ) {
 	global $nightingale_companion_options;
 	// var_dump($headers); #=> if you want to see the current headers...
 	$cacheduration = $nightingale_companion_options['set_browser_cache_4'];
-	if (!is_admin()) {
-		$headers['Cache-Control'] = 'max-age=' . $cacheduration ; // 12 hours.
+	if ( ! is_admin() ) {
+		$headers['Cache-Control'] = 'max-age=' . $cacheduration; // 12 hours.
 	}
 
 	return $headers;
 }
-add_filter('wp_headers', 'nightingale_add_header_cache');
+
+add_filter( 'wp_headers', 'nightingale_add_header_cache' );

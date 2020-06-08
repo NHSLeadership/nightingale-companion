@@ -2,10 +2,11 @@
 /**
  * Customise the login page
  *
- * @package Nightingale
+ * @param https://codex.wordpress.org/Customizing_the_Login_Form
+ *
  * @copyright NHS Leadership Acadenightingale, Tony Blacker
  * @version 1.0 22nd October 2019
- * @param https://codex.wordpress.org/Customizing_the_Login_Form
+ * @package Nightingale
  */
 
 /**
@@ -16,15 +17,18 @@ function nightingale_login_logo() { ?>
 		.nhsuk-header__search-wrap, .nhsuk-breadcrumb, #login h1 {
 			display: none !important;
 		}
+
 		.nhsuk-main-wrapper {
 			padding-top: 0 !important;
 		}
-        #content {
-            background: #f0f4f5;
-        }
+
+		#content {
+			background: #f0f4f5;
+		}
 	</style>
 	<?php
 }
+
 add_action( 'login_enqueue_scripts', 'nightingale_login_logo' );
 
 /**
@@ -35,6 +39,7 @@ add_action( 'login_enqueue_scripts', 'nightingale_login_logo' );
 function nightingale_login_logo_url() {
 	return home_url();
 }
+
 add_filter( 'login_headerurl', 'nightingale_login_logo_url' );
 
 /**
@@ -50,6 +55,7 @@ function nightingale_login_header_styler() {
 							<div class="nhsuk-panel-with-label">
 								<h3 class="nhsuk-panel-with-label__label">Login</h3>';
 }
+
 add_action( 'login_header', 'nightingale_login_header_styler' );
 
 
@@ -65,4 +71,5 @@ function nightingale_login_footer_styler() {
 		  </div>';
 	get_template_part( 'footer' );
 }
+
 add_action( 'login_footer', 'nightingale_login_footer_styler' );

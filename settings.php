@@ -11,7 +11,6 @@
  * Code adding in the options page for the companion plugin that will allow the user to chose which elements of the
  * plugin are activated.
  */
-
 class NightingaleCompanion {
 	private $nightingale_companion_options;
 
@@ -36,12 +35,12 @@ class NightingaleCompanion {
 		<?php settings_errors(); ?>
 
 
-
-
-
 		<div class="wrap">
 			<h2>Nightingale Companion</h2>
-			<div class="notice notice-info"><p>Settings to facilitate the Nightingale Companion plugin. Performance Settings here mean you can optimise your site in one easy bang.</p><p>The defaults when you install the plugin will make your site super speedy and reliable, so you <b>shouldn't need to modify</b> anything...</p></div>
+			<div class="notice notice-info"><p>Settings to facilitate the Nightingale Companion plugin. Performance
+					Settings here mean you can optimise your site in one easy bang.</p>
+				<p>The defaults when you install the plugin will make your site super speedy and reliable, so you <b>shouldn't
+						need to modify</b> anything...</p></div>
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php" class="maketabs">
@@ -175,7 +174,7 @@ class NightingaleCompanion {
 
     }
 
-	public function nightingale_companion_sanitize($input) {
+	public function nightingale_companion_sanitize( $input ) {
 		$sanitary_values = array();
 		if ( isset( $input['retina_images_0'] ) ) {
 			$sanitary_values['retina_images_0'] = $input['retina_images_0'];
@@ -260,7 +259,7 @@ class NightingaleCompanion {
 	public function set_browser_cache_4_callback() {
 		printf(
 			'<input class="regular-text" type="text" size="6" style="width: 5rem;" name="nightingale_companion_option_name[set_browser_cache_4]" id="set_browser_cache_4" value="%s"> <label for="set_browser_cache_4">Set Browser Cache duration in seconds. 300 = 5 minutes, 43206 = 12 hours. Think very carefully before setting to a higher value than 12 hours!</label>',
-			isset( $this->nightingale_companion_options['set_browser_cache_4'] ) ? esc_attr( $this->nightingale_companion_options['set_browser_cache_4']) : '43200'
+			isset( $this->nightingale_companion_options['set_browser_cache_4'] ) ? esc_attr( $this->nightingale_companion_options['set_browser_cache_4'] ) : '43200'
 		);
 	}
 
@@ -308,8 +307,10 @@ class NightingaleCompanion {
 
 
 }
-if ( is_admin() )
+
+if ( is_admin() ) {
 	$nightingale_companion = new NightingaleCompanion();
+}
 
 /*
  * Retrieve this value with:

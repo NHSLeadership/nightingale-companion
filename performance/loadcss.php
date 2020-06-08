@@ -11,8 +11,8 @@
  * Load in the loadcss javascript file to header inline.
  */
 function nightingale_load_css() {
-	wp_register_script( 'loadcss', plugins_url('js/loadcss.js', __FILE__ ) , array(), '02062020', false ); // Register loadCSS javascript function.
-	wp_enqueue_script( 'loadcss', plugins_url('js/loadcss.js', __FILE__ ) , array(), '02062020', false ); // Queue it up.
+	wp_register_script( 'loadcss', plugins_url( 'js/loadcss.js', __FILE__ ), array(), '02062020', false ); // Register loadCSS javascript function.
+	wp_enqueue_script( 'loadcss', plugins_url( 'js/loadcss.js', __FILE__ ), array(), '02062020', false ); // Queue it up.
 
 }
 
