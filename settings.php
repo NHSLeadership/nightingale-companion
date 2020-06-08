@@ -225,7 +225,23 @@ class NightingaleCompanion {
 	}
 
 	public function nightingale_companion_section_info() {
+		echo  '<div style="width: 70%; margin: 0 auto; background:  #ffffff; border:  2px solid #005eb8; padding: 5px; font-size: 1.0rem;">
+                    Settings which affect the visible changes to the theme from the base install.
+               </div>';
 
+	}
+
+	public function nightingale_companion_performance_info() {
+		echo  '<div style="width: 70%; margin: 0 auto; background:  #ffffff; border:  2px solid #005eb8; padding: 5px; font-size: 1.0rem;">
+                    Settings which affect the performance and the <i>perceived</i> performance of the website.
+               </div>';
+
+	}
+
+	public function nightingale_companion_function_info() {
+        echo  '<div style="width: 70%; margin: 0 auto; background:  #ffffff; border:  2px solid #005eb8; padding: 5px; font-size: 1.0rem;">
+                    Settings which affect the front end functionality.
+               </div>';
 	}
 
 	public function retina_images_0_callback() {
