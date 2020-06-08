@@ -21,6 +21,11 @@ add_action( 'init', 'nightingale_companion_load_textdomain' );
 
 /**
  * Set the domain to be used for translations
+ *
+ * @since 1.0.0
+ * @hook nightingale_companion_load_textdomain
+ *
+ * @return {null} simply loads in language files.
  */
 function nightingale_companion_load_textdomain() {
 	load_plugin_textdomain( 'nightingale_companion', false, basename( __DIR__ ) . '/languages' );
@@ -51,6 +56,13 @@ function nightingale_companion_activate() {
 
 register_activation_hook( __FILE__, 'nightingale_companion_activate' );
 
+/**
+ * Set the default values for the plugin settings on installation.
+ *
+ * @since 1.0.0
+ * @hook nightingale_companion_default_values
+ * @return {null} adds avlues to database, no return given.
+ */
 function nightingale_companion_default_values() {
 	$defaults = array(
 		'retina_images_0'      => 'retina_images_0', // EnableRetina Images
@@ -82,11 +94,23 @@ if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the em
 	// Add in the emergency header to the top of the display
 	add_filter( 'wp_footer', 'nightingale_emergency_header' );
 
+	/**
+	 * Add in the emergency header to the output hmtl where active
+	 * @hook nightingale_emergency_header
+	 * @since 1.0.0
+	 * @param {array} $content The initial content for the output.
+	 * @return {array} $content the modified output including the header emergency alert code.
+	 */
 	function nightingale_emergency_header( $content ) {
 		//get your data
 		require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
 	}
 
+	/**
+	 * jQuery routine to take the output emergency alert and insert it into the corret area of the output html
+	 * @since 1.0.0
+	 * @hook nhsblocks_emergency_footer
+	 */
 	function nhsblocks_emergency_footer() {
 		echo "<script>
 		const emergencyBlock = document.querySelector('.nhsuk-global-alert');
@@ -109,6 +133,13 @@ if ( ( isset( $nightingale_companion_options['meta_9'] ) ) && ( $nightingale_com
 
 require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
 
+/**
+ * Add the plugin settings link to the plugins screen for quick access.
+ *
+ * @param {array} $links - the default links displayed under the plugins name on the plugin page in admin.
+ *
+ * @return {array} - the returned array including the new settings link.
+ */
 function nightingale_companion_plugin_action_links( $links ) {
 	return array_merge( array(
 		'<a href="' . get_admin_url( null, 'options-general.php?page=nightingale-companion' ) . '">' . __( 'Settings' ) . '</a>'
