@@ -33,6 +33,9 @@ function nightingale_companion_load_textdomain() {
  * activation of this plugin.
  *
  * @since 1.0.0
+ * @hook nightingale_companion_activate
+ *
+ * @return {bool} did the plugin succesfully activate? If not, display error.
  */
 function nightingale_companion_activate() {
 	if ( current_user_can( 'activate_plugins' ) && ! ( 'Nightingale' == wp_get_theme() ) ) {
