@@ -1,0 +1,17 @@
+{
+  "opts": {
+    "destination": "hookdocs",
+    "recurse": true,
+    "readme": "./README.md"
+  },
+  "source": {
+    "include": [
+      "./"
+    ],
+    "includePattern": ".+\\.(php)?$"
+  },
+  "plugins": [
+    "node_modules/wp-hookdoc/plugin",
+    "plugins/markdown"
+  ]
+}
