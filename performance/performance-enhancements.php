@@ -51,3 +51,7 @@ if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options['minify_8'] ) )
 	require_once( plugin_dir_path( __FILE__ ) . 'basic-minify.php' );
 }
 
+if  ( ( !is_admin() ) && ( isset( $nightingale_companion_options['scripts_in_footer_10'] ) )&& ($nightingale_companion_options['scripts_in_footer_10'] === 'scripts_in_footer_10' ) ) {
+    require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
+}
+

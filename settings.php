@@ -163,7 +163,16 @@ class NightingaleCompanion {
 			'nightingale-companion-admin', // page
 			'nightingale_companion_setting_function' // section
 		);
-	}
+
+        add_settings_field(
+            'scripts_in_footer_10', // id
+            'Move Scripts and Style to Footer?', // title
+            array( $this, 'scripts_in_footer_10_callback' ), // callback
+            'nightingale-companion-admin', // page
+            'nightingale_companion_setting_performance' // section
+        );
+
+    }
 
 	public function nightingale_companion_sanitize( $input ) {
 		$sanitary_values = array();
@@ -207,7 +216,12 @@ class NightingaleCompanion {
 			$sanitary_values['meta_9'] = $input['meta_9'];
 		}
 
-		return $sanitary_values;
+        if ( isset( $input['scripts_in_footer_10'] ) ) {
+            $sanitary_values['scripts_in_footer_10'] = $input['scripts_in_footer_10'];
+        }
+
+
+        return $sanitary_values;
 	}
 
 	public function nightingale_companion_section_info() {
@@ -284,6 +298,13 @@ class NightingaleCompanion {
 		);
 	}
 
+    public function scripts_in_footer_10_callback() {
+        printf(
+            '<input type="checkbox" name="nightingale_companion_option_name[scripts_in_footer_10]" id="scripts_in_footer_10" value="scripts_in_footer_10" %s> <label for="scripts_in_footer_10">Send scripts and styles to the footer. This may cause issues with other plugins. If this occurs, please disable.</label>',
+            ( isset( $this->nightingale_companion_options['scripts_in_footer_10'] ) && $this->nightingale_companion_options['scripts_in_footer_10'] === 'scripts_in_footer_10' ) ? 'checked' : ''
+        );
+    }
+
 
 }
 
@@ -304,5 +325,5 @@ if ( is_admin() ) {
  * $cleanup_wp_header_7 = $nightingale_companion_options['cleanup_wp_header_7']; // Cleanup WP meta tags?
  * $minify_8 = $nightingale_companion_options['minify_8']; // Basic compression of output html?
  * $meta_9 = $nightingale_companion_options['meta_9']; // simple meta tags
- *
+ * $scripts_in_footer_10 = $nightingale_companion_options['scripts_in_footer_10']; // Scripts to footer?
  */

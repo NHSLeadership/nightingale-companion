@@ -1,0 +1,16 @@
+/.wordpress-org
+/.git
+/.github
+/node_modules
+/src
+/vendor
+
+
+.distignore
+.gitignore
+composer.json
+composer.lock
+hookdoc-conf.json
+package.json
+package-lock.json
+README.md
