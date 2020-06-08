@@ -4,7 +4,11 @@
     "recurse": true,
     "readme": "./README.md"
   },
-  "source": {
+  "source":
+  {"include": [
+    "nightingale-companion.php",
+    "performance/"
+  ],
     "includePattern": ".+\\.(php)?$"
   },
   "plugins": [
