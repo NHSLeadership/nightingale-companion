@@ -80,12 +80,12 @@ function nightingale_companion_default_values() {
 		'enable_emergency_alert' => 'on'
 
 	);
-	add_option( 'nightingale_companion', $defaults );
+	add_option( 'nightingale-companion', $defaults );
 }
 
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
-$nightingale_companion_options = get_option( 'nightingale_companion' ); // Array of All Options set for this plugin.
+$nightingale_companion_options = get_option( 'nightingale-companion' ); // Array of All Options set for this plugin.
 if ( ( isset( $nightingale_companion_options['retina_images'] ) ) && ( $nightingale_companion_options['retina_images'] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 }
