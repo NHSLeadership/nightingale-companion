@@ -61,58 +61,65 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
  *
  * @since 1.0.0
  * @hook nightingale_companion_default_values
- * @return {null} adds avlues to database, no return given.
+ * @return {null} adds values to database, no return given.
  */
 function nightingale_companion_default_values() {
 	$defaults = array(
-		'retina_images_0'      => 'retina_images_0', // EnableRetina Images
-		'load_css_1'           => 'load_css_1', // Enable Load CSS
-		'instantpage_2'        => 'instantpage_2', // Enable InstantPage
-		'defer_js_3'           => 'defer_js_3', // Enable Defer JS
-		'set_browser_cache_4'  => '43200', // Set Browser Cache to 12 hours
-		'enable_lazyloading_5' => 'enable_lazyloading_5', // Enable LazyLoading
-		'disable_emojis_6' => 'disable_emojis_6', // Disable Emojis
-		'cleanup_wp_header_7' => 'cleanup_wp_header_7', // Cleanup WP meta tags
-		'minify_8' => 'minify_8', // Basic Minification of Output
-		'meta_9' => 'meta_9', // Simple Meta Description Population
-    'scripts_in_footer_10' => 'scripts_in_footer_10' // Sending Scripts to the Footer
+		'retina_images'      => 'on', // EnableRetina Images
+		'loadcss'           => 'on', // Enable Load CSS
+		'instantpage'        => 'on', // Enable InstantPage
+		'defer_js'           => 'on', // Enable Defer JS
+		'browser_cache'  => '43200', // Set Browser Cache to 12 hours
+		'lazyloading' => 'on', // Enable LazyLoading
+		'disable_emojis' => 'on', // Disable Emojis
+		'cleanup_meta' => 'on', // Cleanup WP meta tags
+		'compress_html' => 'on', // Basic Minification of Output
+		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
+        'move_scripts' => 'on', // Sending Scripts to the Footer
+		'style_login_page' => 'on',
+		'enable_emergency_alert' => 'on'
 
 	);
-	add_option( 'nightingale_companion_option_name', $defaults );
+	add_option( 'nightingale_companion', $defaults );
 }
 
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
-$nightingale_companion_options = get_option( 'nightingale_companion_option_name' ); // Array of All Options set for this plugin.
-if ( ( isset( $nightingale_companion_options['retina_images_0'] ) ) && ( $nightingale_companion_options['retina_images_0'] === 'retina_images_0' ) ) {
+$nightingale_companion_options = get_option( 'nightingale_companion' ); // Array of All Options set for this plugin.
+if ( ( isset( $nightingale_companion_options['retina_images'] ) ) && ( $nightingale_companion_options['retina_images'] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
 }
 require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );
 
-require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
-if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
-	// Add in the emergency header to the top of the display
-	add_filter( 'wp_footer', 'nightingale_emergency_header' );
+if ( ( isset( $nightingale_companion_options['enable_emergency_alert'] ) ) && ( $nightingale_companion_options['enable_emergency_alert'] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
+	if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
+		// Add in the emergency header to the top of the display
+		add_filter( 'wp_footer', 'nightingale_emergency_header' );
 
-	/**
-	 * Add in the emergency header to the output hmtl where active
-	 * @hook nightingale_emergency_header
-	 * @since 1.0.0
-	 * @param {array} $content The initial content for the output.
-	 * @return {array} $content the modified output including the header emergency alert code.
-	 */
-	function nightingale_emergency_header( $content ) {
-		//get your data
-		require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
-	}
+		/**
+		 * Add in the emergency header to the output hmtl where active
+		 *
+		 * @hook   nightingale_emergency_header
+		 *
+		 * @param  {array} $content The initial content for the output.
+		 *
+		 * @return {array} $content the modified output including the header emergency alert code.
+		 * @since  1.0.0
+		 */
+		function nightingale_emergency_header( $content ) {
+			//get your data
+			require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
+		}
 
-	/**
-	 * jQuery routine to take the output emergency alert and insert it into the corret area of the output html
-	 * @since 1.0.0
-	 * @hook nhsblocks_emergency_footer
-	 */
-	function nhsblocks_emergency_footer() {
-		echo "<script>
+		/**
+		 * jQuery routine to take the output emergency alert and insert it into the corret area of the output html
+		 *
+		 * @since 1.0.0
+		 * @hook  nhsblocks_emergency_footer
+		 */
+		function nhsblocks_emergency_footer() {
+			echo "<script>
 		const emergencyBlock = document.querySelector('.nhsuk-global-alert');
 		if ( ( emergencyBlock ) ) { 
 			matches = emergencyBlock.matches ? emergencyBlock.matches('.nhsuk-global-alert') : emergencyBlock.msMatchesSelector('.nhsuk-global-alert');
@@ -122,16 +129,19 @@ if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the em
 			}
 		}	
 	</script>";
-	}
+		}
 
-	add_action( 'wp_footer', 'nhsblocks_emergency_footer' );
+		add_action( 'wp_footer', 'nhsblocks_emergency_footer' );
+	}
 }
 
-if ( ( isset( $nightingale_companion_options['meta_9'] ) ) && ( $nightingale_companion_options['meta_9'] === 'meta_9' ) ) {
+if ( ( isset( $nightingale_companion_options['excerpts_as_meta_description'] ) ) && ( $nightingale_companion_options['excerpts_as_meta_description'] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'functionality/simple-meta.php' );
 }
 
-require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
+if ( ( isset( $nightingale_companion_options['style_login_page'] ) ) && ( $nightingale_companion_options['style_login_page'] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
+}
 
 /**
  * Add the plugin settings link to the plugins screen for quick access.

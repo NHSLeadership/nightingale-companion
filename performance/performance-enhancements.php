@@ -2,30 +2,32 @@
 /**
  * Performance tweaks to improve load times and overall performance of site.
  *
- * @package nightingale-companion
+ * @package   nightingale-companion
  * @copyright NHS Leadership Academy, Nick Summerfield
- * @version 1.0 2nd June 2020
+ * @version   1.0 2nd June 2020
  */
 // load css stuff.
-if ( ( isset( $nightingale_companion_options['load_css_1'] ) ) && ( $nightingale_companion_options['load_css_1'] === 'load_css_1' ) ) {
+if ( ( isset( $nightingale_companion_options[ 'loadcss' ] ) ) && ( $nightingale_companion_options[ 'loadcss' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'loadcss.php' );
 }
 
 // instantpage stuff.
-if ( ( isset( $nightingale_companion_options['instantpage_2'] ) ) && ( $nightingale_companion_options['instantpage_2'] === 'instantpage_2' ) ) {
+if ( ( isset( $nightingale_companion_options[ 'instantpage' ] ) ) && ( $nightingale_companion_options[ 'instantpage' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'instantpage.php' );
 }
 
 // defer JS loading to footer.
-if ( ( isset( $nightingale_companion_options['defer_js_3'] ) ) && ( $nightingale_companion_options['defer_js_3'] === 'defer_js_3' ) ) {
+if ( ( isset( $nightingale_companion_options[ 'defer_js' ] ) ) && ( $nightingale_companion_options[ 'defer_js' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'defer-js.php' );
 }
 
 // set cache headers.
-require_once( plugin_dir_path( __FILE__ ) . 'cache-headers.php' );
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'browser_cache' ] ) ) && ( $nightingale_companion_options[ 'browser_cache' ] > 0 ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'cache-headers.php' );
+}
 
 //lazy loading - this will eventually be part of core WP
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options['enable_lazyloading_5'] ) ) && ( $nightingale_companion_options['enable_lazyloading_5'] === 'enable_lazyloading_5' ) ) {
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'lazyloading' ] ) ) && ( $nightingale_companion_options[ 'lazyloading' ] === 'on' ) ) {
 	if (
 		! function_exists( 'wp_lazy_loading_enabled' ) &&
 		! function_exists( 'wp_filter_content_tags' ) &&
@@ -37,21 +39,21 @@ if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options['enable_lazyloa
 }
 
 // disableemojis.
-if ( ( isset( $nightingale_companion_options['disable_emojis_6'] ) ) && ( $nightingale_companion_options['disable_emojis_6'] === 'disable_emojis_6' ) ) {
+if ( ( isset( $nightingale_companion_options[ 'disable_emojis' ] ) ) && ( $nightingale_companion_options[ 'disable_emojis' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'disable-emojis.php' );
 }
 
-
 // cleanup WP headers.
-if ( ( isset( $nightingale_companion_options['cleanup_wp_header_7'] ) ) && ( $nightingale_companion_options['cleanup_wp_header_7'] === 'cleanup_wp_header_7' ) ) {
+if ( ( isset( $nightingale_companion_options[ 'cleanup_meta' ] ) ) && ( $nightingale_companion_options[ 'cleanup_meta' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'clean-wp-headers.php' );
 }
 
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options['minify_8'] ) ) && ( $nightingale_companion_options['minify_8'] === 'minify_8' ) ) {
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'compress_html' ] ) ) && ( $nightingale_companion_options[ 'compress_html' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'basic-minify.php' );
 }
 
-if  ( ( !is_admin() ) && ( isset( $nightingale_companion_options['scripts_in_footer_10'] ) )&& ($nightingale_companion_options['scripts_in_footer_10'] === 'scripts_in_footer_10' ) ) {
-    require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'move_scripts' ] ) ) && ( $nightingale_companion_options[ 'move_scripts
+' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
 }
 
