@@ -10,12 +10,12 @@
 /**
  * Load in the instantpage javascript file to header inline.
  */
-function nightingale_load_instantpage() {
+function nightingale_companion_load_instantpage() {
 	wp_register_script( 'instantpage', plugins_url( 'js/instantpage.js', __FILE__ ), array(), '02062020', false ); // Register instantpage javascript function.
 	wp_enqueue_script( 'instantpage', plugins_url( 'js/instantpage.js', __FILE__ ), array(), '02062020', false ); // Queue it up.
 
 }
 
-add_action( 'wp_head', 'nightingale_load_instantpage', 99 );
-add_action( 'login_head', 'nightingale_load_instantpage', 99 );
+add_action( 'wp_head', 'nightingale_companion_load_instantpage', 99 );
+add_action( 'login_head', 'nightingale_companion_load_instantpage', 99 );
 

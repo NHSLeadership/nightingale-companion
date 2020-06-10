@@ -10,14 +10,14 @@
 /**
  * Load in the loadcss javascript file to header inline.
  */
-function nightingale_load_css() {
+function nightingale_companion_load_css() {
 	wp_register_script( 'loadcss', plugins_url( 'js/loadcss.js', __FILE__ ), array(), '02062020', false ); // Register loadCSS javascript function.
 	wp_enqueue_script( 'loadcss', plugins_url( 'js/loadcss.js', __FILE__ ), array(), '02062020', false ); // Queue it up.
 
 }
 
-add_action( 'wp_head', 'nightingale_load_css', 1 );
-add_action( 'login_head', 'nightingale_load_css', 1 );
+add_action( 'wp_head', 'nightingale_companion_load_css', 1 );
+add_action( 'login_head', 'nightingale_companion_load_css', 1 );
 
 
 /**
@@ -29,7 +29,7 @@ add_action( 'login_head', 'nightingale_load_css', 1 );
  *
  * @return string
  */
-function nightingale_loadcss_files( $html, $handle, $href ) {
+function nightingale_companion_loadcss_files( $html, $handle, $href ) {
 	if ( $html ) {
 		if ( is_admin() ) {
 			return $html;
@@ -43,7 +43,7 @@ function nightingale_loadcss_files( $html, $handle, $href ) {
 	}
 }
 
-add_filter( 'style_loader_tag', 'nightingale_loadcss_files', 9999, 3 );
+add_filter( 'style_loader_tag', 'nightingale_companion_loadcss_files', 9999, 3 );
 
 
 // Down and dirty trick to load scripts BEFORE css to make loadCSS work properly.

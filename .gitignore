@@ -9,3 +9,4 @@ hookdocs/
 *.sql
 *.sqlite
 nightingale-companion.zip
+.DS_Store

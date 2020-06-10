@@ -11,7 +11,7 @@
 /**
  * Remove a chunk of stuff from the header to optimise loading.
  */
-function nightingale_head_cleanup() {
+function nightingale_companion_head_cleanup() {
 	remove_action( 'wp_head', 'feed_links_extra', 3 );                      // Category Feeds.
 	remove_action( 'wp_head', 'feed_links', 2 );                            // Post and Comment Feeds.
 	remove_action( 'wp_head', 'rsd_link' );                                 // EditURI link.
@@ -29,4 +29,4 @@ function nightingale_head_cleanup() {
  */
 
 // remove header links.
-add_action( 'init', 'nightingale_head_cleanup' );
+add_action( 'init', 'nightingale_companion_head_cleanup' );
