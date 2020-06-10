@@ -19,6 +19,7 @@ function nightingale_companion_meta_description() {
 	// the header as a meta description.
 	$meta_excerpt = wp_strip_all_tags( get_the_excerpt(), true );
 	echo '<meta name="description" content="' . esc_attr( $meta_excerpt ) . '" />' . "\n";
+	echo '<meta name="generator" content="NHS Nightingale Theme" />' . "\n";
 
 }
 

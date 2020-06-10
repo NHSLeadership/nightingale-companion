@@ -70,12 +70,12 @@ function nightingale_companion_default_values() {
 		'instantpage'        => 'on', // Enable InstantPage
 		'defer_js'           => 'on', // Enable Defer JS
 		'browser_cache'  => '43200', // Set Browser Cache to 12 hours
-		'lazyloading' => 'on', // Enable LazyLoading
+		'lazy_loading' => 'on', // Enable LazyLoading
 		'disable_emojis' => 'on', // Disable Emojis
 		'cleanup_meta' => 'on', // Cleanup WP meta tags
 		'compress_html' => 'on', // Basic Minification of Output
 		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
-        'move_scripts' => 'on', // Sending Scripts to the Footer
+        'move_scripts_to_footer' => 'on', // Sending Scripts to the Footer
 		'style_login_page' => 'on',
 		'enable_emergency_alert' => 'on'
 
@@ -95,7 +95,7 @@ if ( ( isset( $nightingale_companion_options['enable_emergency_alert'] ) ) && ( 
 	require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
 	if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
 		// Add in the emergency header to the top of the display
-		add_filter( 'wp_footer', 'nightingale_emergency_header' );
+		add_filter( 'wp_footer', 'nightingale_companion_emergency_header' );
 
 		/**
 		 * Add in the emergency header to the output hmtl where active
@@ -107,7 +107,7 @@ if ( ( isset( $nightingale_companion_options['enable_emergency_alert'] ) ) && ( 
 		 * @return {array} $content the modified output including the header emergency alert code.
 		 * @since  1.0.0
 		 */
-		function nightingale_emergency_header( $content ) {
+		function nightingale_companion_emergency_header( $content ) {
 			//get your data
 			require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
 		}
@@ -118,7 +118,7 @@ if ( ( isset( $nightingale_companion_options['enable_emergency_alert'] ) ) && ( 
 		 * @since 1.0.0
 		 * @hook  nhsblocks_emergency_footer
 		 */
-		function nhsblocks_emergency_footer() {
+		function nightingale_companion_emergency_footer() {
 			echo "<script>
 		const emergencyBlock = document.querySelector('.nhsuk-global-alert');
 		if ( ( emergencyBlock ) ) { 
@@ -131,7 +131,7 @@ if ( ( isset( $nightingale_companion_options['enable_emergency_alert'] ) ) && ( 
 	</script>";
 		}
 
-		add_action( 'wp_footer', 'nhsblocks_emergency_footer' );
+		add_action( 'wp_footer', 'nightingale_companion_emergency_footer' );
 	}
 }
 

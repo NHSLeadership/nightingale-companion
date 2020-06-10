@@ -14,9 +14,9 @@
  *
  * @return string $url Javascript file with defer tag added.
  */
-function nightingale_defer_parsing_js( $url ) {
+function nightingale_companion_defer_parsing_js( $url ) {
 	// Add the files to exclude from defer. Add jquery.js by default.
-	$exclude_files = array( 'jquery', 'loadcss' );
+	$exclude_files = array( 'jquery', 'loadcss' ); //These are files we do not want to defer. Please add files here if needed
 	// Bypass JS defer for logged in users.
 	if ( ! is_user_logged_in() ) {
 		if ( false === strpos( $url, '.js' ) ) {
@@ -36,4 +36,4 @@ function nightingale_defer_parsing_js( $url ) {
 
 }
 
-add_filter( 'clean_url', 'nightingale_defer_parsing_js', 11, 1 );
+add_filter( 'clean_url', 'nightingale_companion_defer_parsing_js', 11, 1 );

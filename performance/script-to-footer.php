@@ -10,7 +10,7 @@
 /**
 * Grab all scripts, chuck 'em at bottom of html
 */
-function nightingale_script_to_footer() {
+function nightingale_companion_script_to_footer() {
 
     // clean head
     remove_action('wp_head', 'wp_print_scripts');
@@ -25,4 +25,4 @@ function nightingale_script_to_footer() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'nightingale_script_to_footer', 99 );
+add_action( 'wp_enqueue_scripts', 'nightingale_companion_script_to_footer', 99 );

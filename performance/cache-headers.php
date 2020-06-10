@@ -10,7 +10,7 @@
 /*
  * Modify HTTP header to add a 12 hour browser cache instruction.
  */
-function nightingale_add_header_cache( $headers ) {
+function nightingale_companion_add_header_cache( $headers ) {
 	global $nightingale_companion_options;
 	// var_dump($headers); #=> if you want to see the current headers...
 	$cacheduration = $nightingale_companion_options['browser_cache'];
@@ -21,4 +21,4 @@ function nightingale_add_header_cache( $headers ) {
 	return $headers;
 }
 
-add_filter( 'wp_headers', 'nightingale_add_header_cache' );
+add_filter( 'wp_headers', 'nightingale_companion_add_header_cache' );

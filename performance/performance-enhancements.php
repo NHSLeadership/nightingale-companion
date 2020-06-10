@@ -27,7 +27,7 @@ if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'browser_cache
 }
 
 //lazy loading - this will eventually be part of core WP
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'lazyloading' ] ) ) && ( $nightingale_companion_options[ 'lazyloading' ] === 'on' ) ) {
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'lazy_loading' ] ) ) && ( $nightingale_companion_options[ 'lazy_loading' ] === 'on' ) ) {
 	if (
 		! function_exists( 'wp_lazy_loading_enabled' ) &&
 		! function_exists( 'wp_filter_content_tags' ) &&
@@ -52,7 +52,7 @@ if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'compress_html
 	require_once( plugin_dir_path( __FILE__ ) . 'basic-minify.php' );
 }
 
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'move_scripts' ] ) ) && ( $nightingale_companion_options[ 'move_scripts
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'move_scripts_to_footer' ] ) ) && ( $nightingale_companion_options[ 'move_scripts_to_footer
 ' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
 }

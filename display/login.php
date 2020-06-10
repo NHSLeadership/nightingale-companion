@@ -36,16 +36,16 @@ add_action( 'login_enqueue_scripts', 'nightingale_login_logo' );
  *
  * @return string|void url
  */
-function nightingale_login_logo_url() {
+function nightingale_companion_login_logo_url() {
 	return home_url();
 }
 
-add_filter( 'login_headerurl', 'nightingale_login_logo_url' );
+add_filter( 'login_headerurl', 'nightingale_companion_login_logo_url' );
 
 /**
  * Add in extra divs around the header output.
  */
-function nightingale_login_header_styler() {
+function nightingale_companion_login_header_styler() {
 	get_template_part( 'header' );
 	echo '<div id="content" class="nhsuk-width-container nhsuk-width-container--full">
 			<main class="nhsuk-main-wrapper nhsuk-main-wrapper--no-padding" id="maincontent">
@@ -56,13 +56,13 @@ function nightingale_login_header_styler() {
 								<h3 class="nhsuk-panel-with-label__label">Login</h3>';
 }
 
-add_action( 'login_header', 'nightingale_login_header_styler' );
+add_action( 'login_header', 'nightingale_companion_login_header_styler' );
 
 
 /**
  * Add in Nightingale Footer div closures.
  */
-function nightingale_login_footer_styler() {
+function nightingale_companion_login_footer_styler() {
 	echo '					</div>
 						</div>
 					</div>
@@ -72,4 +72,4 @@ function nightingale_login_footer_styler() {
 	get_template_part( 'footer' );
 }
 
-add_action( 'login_footer', 'nightingale_login_footer_styler' );
+add_action( 'login_footer', 'nightingale_companion_login_footer_styler' );

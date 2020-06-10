@@ -18,21 +18,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Initialise filters and actions.
  */
-function _wp_lazy_loading_initialize_filters() {
+function nightingale_companion_wp_lazy_loading_initialize_filters() {
 	// The following filters would be merged into core.
 	foreach ( array( 'the_content', 'the_excerpt', 'widget_text_content' ) as $filter ) {
-		add_filter( $filter, 'wp_filter_content_tags' );
+		add_filter( $filter, 'nightingale_companion_wp_filter_content_tags' );
 	}
 
 	// The following filters are only needed while this is a feature plugin.
-	add_filter( 'wp_get_attachment_image_attributes', '_wp_lazy_loading_add_attribute_to_attachment_image' );
-	add_filter( 'get_avatar', '_wp_lazy_loading_add_attribute_to_avatar' );
+	add_filter( 'wp_get_attachment_image_attributes', 'nightingale_companion_wp_lazy_loading_add_attribute_to_attachment_image' );
+	add_filter( 'get_avatar', 'nightingale_companion_wp_lazy_loading_add_attribute_to_avatar' );
 
 	// The following relevant filter from core should be removed when merged.
-	remove_filter( 'the_content', 'wp_make_content_images_responsive' );
+	remove_filter( 'the_content', 'nightingale_companion_wp_make_content_images_responsive' );
 }
 
-add_action( 'plugins_loaded', '_wp_lazy_loading_initialize_filters', 1 );
+add_action( 'plugins_loaded', 'nightingale_companion_wp_lazy_loading_initialize_filters', 1 );
 
 
 // The following functions are only needed while this is a plugin.
@@ -51,8 +51,8 @@ add_action( 'plugins_loaded', '_wp_lazy_loading_initialize_filters', 1 );
  * @see get_avatar()
  *
  */
-function _wp_lazy_loading_add_attribute_to_avatar( $avatar ) {
-	if ( wp_lazy_loading_enabled( 'img', 'get_avatar' ) && false === strpos( $avatar, ' loading=' ) ) {
+function nightingale_companion_wp_lazy_loading_add_attribute_to_avatar( $avatar ) {
+	if ( nightingale_companion_wp_lazy_loading_enabled( 'img', 'get_avatar' ) && false === strpos( $avatar, ' loading=' ) ) {
 		$avatar = str_replace( '<img ', '<img loading="lazy" ', $avatar );
 	}
 
@@ -73,8 +73,8 @@ function _wp_lazy_loading_add_attribute_to_avatar( $avatar ) {
  * @see wp_get_attachment_image()
  *
  */
-function _wp_lazy_loading_add_attribute_to_attachment_image( $attr ) {
-	if ( wp_lazy_loading_enabled( 'img', 'wp_get_attachment_image' ) && ! isset( $attr['loading'] ) ) {
+function nightingale_companion_wp_lazy_loading_add_attribute_to_attachment_image( $attr ) {
+	if ( nightingale_companion_wp_lazy_loading_enabled( 'img', 'nightingale_companion_wp_get_attachment_image' ) && ! isset( $attr['loading'] ) ) {
 		$attr['loading'] = 'lazy';
 	}
 
@@ -94,7 +94,7 @@ function _wp_lazy_loading_add_attribute_to_attachment_image( $attr ) {
  * @since (TBD)
  *
  */
-function wp_lazy_loading_enabled( $tag_name, $context ) {
+function nightingale_companion_wp_lazy_loading_enabled( $tag_name, $context ) {
 	// By default add to all 'img' tags.
 	// See https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-loading
 	$default = ( 'img' === $tag_name );
@@ -109,7 +109,7 @@ function wp_lazy_loading_enabled( $tag_name, $context ) {
 	 * @since (TBD)
 	 *
 	 */
-	return (bool) apply_filters( 'wp_lazy_loading_enabled', $default, $tag_name, $context );
+	return (bool) apply_filters( 'nightingale_companion_wp_lazy_loading_enabled', $default, $tag_name, $context );
 }
 
 /**
@@ -127,12 +127,12 @@ function wp_lazy_loading_enabled( $tag_name, $context ) {
  * @see wp_img_tag_add_srcset_and_sizes_attr()
  *
  */
-function wp_filter_content_tags( $content, $context = null ) {
+function nightingale_companion_wp_filter_content_tags( $content, $context = null ) {
 	if ( null === $context ) {
 		$context = current_filter();
 	}
 
-	$add_loading_attr = wp_lazy_loading_enabled( 'img', $context );
+	$add_loading_attr = nightingale_companion_wp_lazy_loading_enabled( 'img', $context );
 
 	if ( false === strpos( $content, '<img' ) ) {
 		return $content;
@@ -178,12 +178,12 @@ function wp_filter_content_tags( $content, $context = null ) {
 
 		// Add 'srcset' and 'sizes' attributes if applicable.
 		if ( $attachment_id > 0 && false === strpos( $filtered_image, ' srcset=' ) ) {
-			$filtered_image = wp_img_tag_add_srcset_and_sizes_attr( $filtered_image, $context, $attachment_id );
+			$filtered_image = nightingale_companion_wp_img_tag_add_srcset_and_sizes_attr( $filtered_image, $context, $attachment_id );
 		}
 
 		// Add 'loading' attribute if applicable.
 		if ( $add_loading_attr && false === strpos( $filtered_image, ' loading=' ) ) {
-			$filtered_image = wp_img_tag_add_loading_attr( $filtered_image, $context );
+			$filtered_image = nightingale_companion_wp_img_tag_add_loading_attr( $filtered_image, $context );
 		}
 
 		if ( $filtered_image !== $image ) {
@@ -204,7 +204,7 @@ function wp_filter_content_tags( $content, $context = null ) {
  * @since (TBD)
  *
  */
-function wp_img_tag_add_loading_attr( $image, $context ) {
+function nightingale_companion_wp_img_tag_add_loading_attr( $image, $context ) {
 	/**
 	 * Filters the `loading` attribute value. Default `lazy`.
 	 *
@@ -218,7 +218,7 @@ function wp_img_tag_add_loading_attr( $image, $context ) {
 	 * @since (TBD)
 	 *
 	 */
-	$value = apply_filters( 'wp_img_tag_add_loading_attr', 'lazy', $image, $context );
+	$value = apply_filters( 'nightingale_companion_wp_img_tag_add_loading_attr', 'lazy', $image, $context );
 
 	if ( $value ) {
 		if ( ! in_array( $value, array( 'lazy', 'eager' ), true ) ) {
@@ -242,7 +242,7 @@ function wp_img_tag_add_loading_attr( $image, $context ) {
  * @since (TBD)
  *
  */
-function wp_img_tag_add_srcset_and_sizes_attr( $image, $context, $attachment_id ) {
+function nightingale_companion_wp_img_tag_add_srcset_and_sizes_attr( $image, $context, $attachment_id ) {
 	/**
 	 * Filters whether to add the `srcset` and `sizes` HTML attributes to the img tag. Default `true`.
 	 *
@@ -256,7 +256,7 @@ function wp_img_tag_add_srcset_and_sizes_attr( $image, $context, $attachment_id 
 	 * @since (TBD)
 	 *
 	 */
-	$add = apply_filters( 'wp_img_tag_add_srcset_and_sizes_attr', true, $image, $context, $attachment_id );
+	$add = apply_filters( 'nightingale_companion_wp_img_tag_add_srcset_and_sizes_attr', true, $image, $context, $attachment_id );
 
 	if ( true === $add ) {
 		$image_meta = wp_get_attachment_metadata( $attachment_id );
