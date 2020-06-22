@@ -38,8 +38,8 @@ function nightingale_companion_customize_register( $wp_customize ) {
 			'choices'     => array(
 				'yes' => esc_html__( 'Yes', 'nightingale' ),
 				'no'  => esc_html__( 'No', 'nightingale' ),
-			),
-		),
+			)
+		)
 		);
 	$wp_customize->add_setting(
 		'emergency_heading',
