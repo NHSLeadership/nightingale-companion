@@ -122,8 +122,8 @@ function nightingale_companion_customize_register( $wp_customize ) {
 			'choices'     => array(
 				'yes' => esc_html__( 'Yes', 'nightingale' ),
 				'no'  => esc_html__( 'No', 'nightingale' ),
-			),
-		),
+			)
+		)
 		);
 	$wp_customize->add_setting(
 		'emergency_date',
@@ -140,7 +140,7 @@ function nightingale_companion_customize_register( $wp_customize ) {
 			'type'        => 'date',
 			'input_attrs' => array(
 				'placeholder' => __( 'mm/dd/yyyy', 'nightingale' ),
-			),
+			)
 		)
 	);
 }
