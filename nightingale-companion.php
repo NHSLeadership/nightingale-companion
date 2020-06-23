@@ -43,7 +43,8 @@ function nightingale_companion_load_textdomain() {
  * @return {bool} did the plugin succesfully activate? If not, display error.
  */
 function nightingale_companion_activate() {
-	if ( current_user_can( 'activate_plugins' ) && ! ( 'Nightingale' == wp_get_theme() ) ) {
+	$theme = wp_get_theme();
+	if ( current_user_can( 'activate_plugins' ) && ! ( ( 'Nightingale' == $theme->name ) || ('Nightingale' == $theme->parent_theme ) ) ) {
 		// Deactivate the plugin.
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		// Throw an error in the WordPress admin console.
@@ -152,7 +153,7 @@ if ( ( isset( $nightingale_companion_options['style_login_page'] ) ) && ( $night
  */
 function nightingale_companion_plugin_action_links( $links ) {
 	return array_merge( array(
-		'<a href="' . get_admin_url( null, 'options-general.php?page=nightingale-companion' ) . '">' . __( 'Settings' ) . '</a>'
+		'<a href="' . get_admin_url( null, 'options-general.php?page=nightingale_companion' ) . '">' . __( 'Settings' ) . '</a>'
 	), $links );
 }
 
