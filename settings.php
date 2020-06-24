@@ -48,18 +48,6 @@ $pages       = array(
 						'checked' => 'true',
 						'text'  => 'Add an emergency alert banner to be configured across the whole site (if enabled, you will still need to visit Appearance > Customizer > Emergency Alert to configure what actually displays)',
 					),
-					'show_author_bio' => array(
-						'title' => 'Show Author Bio?',
-						'type'  => 'checkbox',
-						'checked' => 'true',
-						'text'  => 'Displays an author bio section below posts',
-					),
-					'show_author_posts' => array(
-						'title' => 'Show Author Posts?',
-						'type'  => 'checkbox',
-						'checked' => 'true',
-						'text'  => 'Display 6 posts from the same author below blog post',
-					),
 				),
 			),
 			'function-options'    => array(
@@ -126,15 +114,27 @@ $pages       = array(
 					),
 				),
 			),
-		),
-
-		'function-options' => array(
-			'title'  => __( 'Functionality', 'nightingale' ),
-			'fields' => array(
-				'meta_9' => array(
-					'title' => 'Excerpts as Meta Description',
-					'type'  => 'checkbox',
-					'text'  => 'some blurbage',
+			'blog-options' => array(
+				'title'  => __( 'Blog Section Settings', 'nightingale' ),
+				'fields' => array(
+					'hide_featured_images' => array(
+						'title' => 'Hide Featured Images',
+						'type'  => 'checkbox',
+						'checked' => 'true',
+						'text'  => 'Suppress featured images from displaying on single post pages. i.e. only show featured image on pages with multiple posts on them.',
+					),
+					'show_author_bio' => array(
+						'title' => 'Show Author Bio?',
+						'type'  => 'checkbox',
+						'checked' => 'true',
+						'text'  => 'Displays an author bio section below posts',
+					),
+					'show_author_posts' => array(
+						'title' => 'Show Author Posts?',
+						'type'  => 'checkbox',
+						'checked' => 'true',
+						'text'  => 'Display 6 posts from the same author below blog post',
+					),
 				),
 			),
 		),

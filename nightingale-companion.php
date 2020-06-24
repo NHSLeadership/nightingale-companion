@@ -79,6 +79,7 @@ function nightingale_companion_default_values() {
 		'enable_emergency_alert'       => 'on',
 		'show_author_bio'              => 'on',
 		'show_author_posts'            => 'on',
+		'hide_featured_images'         => 'on',
 	);
 	add_option( 'nightingale-companion', $defaults );
 }
@@ -154,6 +155,9 @@ if ( ( isset( $nightingale_companion_options[ 'show_author_posts' ] ) ) && ( $ni
 	require_once( plugin_dir_path( __FILE__ ) . 'display/posts-by-author.php' );
 }
 
+if ( ( isset( $nightingale_companion_options[ 'hide_featured_images' ] ) ) && ( $nightingale_companion_options[ 'hide_featured_images' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'display/hide-featured-images.php' );
+}
 /**
  * Add the plugin settings link to the plugins screen for quick access.
  *
