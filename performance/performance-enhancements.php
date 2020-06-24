@@ -52,8 +52,7 @@ if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'compress_html
 	require_once( plugin_dir_path( __FILE__ ) . 'basic-minify.php' );
 }
 
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'move_scripts_to_footer' ] ) ) && ( $nightingale_companion_options[ 'move_scripts_to_footer
-' ] === 'on' ) ) {
+if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'move_scripts_to_footer' ] ) ) && ( $nightingale_companion_options[ 'move_scripts_to_footer' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
 }
 
