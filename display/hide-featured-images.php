@@ -14,7 +14,6 @@ add_action( 'wp_head', 'nightingale_companion_featured_image');
 /**
  *  To hide featured image from single post page
  *
- * @since Hide Featured Image 1.0
  */
 function nightingale_companion_featured_image() {
 

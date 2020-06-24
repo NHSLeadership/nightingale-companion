@@ -58,7 +58,7 @@ function nightingale_companion_postsby_author( $content ) {
 			<a class="nhsuk-promo__link-wrapper" href="' . $link . '">' . $image;
 			$output .= '<div class="nhsuk-promo__content">';
 			$output .= '<h2 class="nhsuk-promo__heading">' . $title . '</h2>';
-			$output .= '<span class="nhsuk-body-s">' . $date . '</span>';
+			$output .= '<span class="nhsuk-body-s entry-date">' . $date . '</span>';
 			$output .= $excerpt;
 			$output .= '</div></a></div></div>';
 			//}

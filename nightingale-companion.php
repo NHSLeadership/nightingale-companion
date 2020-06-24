@@ -77,9 +77,11 @@ function nightingale_companion_default_values() {
 		'move_scripts_to_footer'       => 'on', // Sending Scripts to the Footer
 		'style_login_page'             => 'on',
 		'enable_emergency_alert'       => 'on',
-		'show_author_bio'              => 'on',
-		'show_author_posts'            => 'on',
-		'hide_featured_images'         => 'on',
+		'show_author_bio'              => 'off',
+		'show_author_posts'            => 'off',
+		'hide_featured_images'         => 'off',
+		'hide_author_name' => 'off',
+		'hide_post_date' => 'off',
 	);
 	add_option( 'nightingale-companion', $defaults );
 }
@@ -158,6 +160,7 @@ if ( ( isset( $nightingale_companion_options[ 'show_author_posts' ] ) ) && ( $ni
 if ( ( isset( $nightingale_companion_options[ 'hide_featured_images' ] ) ) && ( $nightingale_companion_options[ 'hide_featured_images' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'display/hide-featured-images.php' );
 }
+require_once( plugin_dir_path( __FILE__ ) . 'display/suppress-post-fields.php' );
 /**
  * Add the plugin settings link to the plugins screen for quick access.
  *
