@@ -12,21 +12,6 @@
  * plugin are activated.
  */
 
-/*
- * Retrieve this value with:
- * $nightingale_companion_options = get_option( 'nightingale_companion' ); // Array of All Options
- * $retina_images_0 = $nightingale_companion_options['retina_images_0']; // Retina Images
- * $load_css_1 = $nightingale_companion_options['load_css_1']; // Load CSS
- * $instantpage_2 = $nightingale_companion_options['instantpage_2']; // InstantPage
- * $defer_js_3 = $nightingale_companion_options['defer_js_3']; // Defer JS
- * $set_browser_cache_4 = $nightingale_companion_options['set_browser_cache_4']; // Set Browser Cache
- * $enable_lazyloading_5 = $nightingale_companion_options['enable_lazyloading_5']; // Enable LazyLoading?
- * $disable_emojis_6 = $nightingale_companion_options['disable_emojis_6']; // Disable Emojis?
- * $cleanup_wp_header_7 = $nightingale_companion_options['cleanup_wp_header_7']; // Cleanup WP meta tags?
- * $minify_8 = $nightingale_companion_options['minify_8']; // Basic compression of output html?
- * $meta_9 = $nightingale_companion_options['meta_9']; // simple meta tags
- * $scripts_in_footer_10 = $nightingale_companion_options['scripts_in_footer_10']; // Scripts to footer?
- */
 require_once( 'RationalOptionPages.php' );
 
 // this array is made up using the guide at https://github.com/jeremyHixon/RationalOptionPages
@@ -49,19 +34,31 @@ $pages       = array(
 						'title' => 'Disable Emojis',
 						'type'  => 'checkbox',
 						'checked' => 'true',
-						'text'  => 'Take WordPress emoji library out of being auto loaded?',
+						'text'  => 'Take WordPress emoji library out of being auto loaded',
 					),
 					'login_styling'   => array(
 						'title' => 'Style Login Page',
 						'type'  => 'checkbox',
 						'checked' => 'true',
-						'text'  => 'Apply styling to login and registration screens to match rest of front end design?',
+						'text'  => 'Apply styling to login and registration screens to match rest of front end design',
 					),
 					'emergency_alert' => array(
 						'title' => 'Enable Emergency Alert?',
 						'type'  => 'checkbox',
 						'checked' => 'true',
-						'text'  => 'Add an emergency alert banner to be configured across the whole site? (if enabled, you will still need to visit Appearance > Customizer > Emergency Alert to configure what actually displays)',
+						'text'  => 'Add an emergency alert banner to be configured across the whole site (if enabled, you will still need to visit Appearance > Customizer > Emergency Alert to configure what actually displays)',
+					),
+					'show_author_bio' => array(
+						'title' => 'Show Author Bio?',
+						'type'  => 'checkbox',
+						'checked' => 'true',
+						'text'  => 'Displays an author bio section below posts',
+					),
+					'show_author_posts' => array(
+						'title' => 'Show Author Posts?',
+						'type'  => 'checkbox',
+						'checked' => 'true',
+						'text'  => 'Display 6 posts from the same author below blog post',
 					),
 				),
 			),
@@ -78,7 +75,7 @@ $pages       = array(
 						'title' => 'Cleanup Meta',
 						'type'  => 'checkbox',
 						'checked' => 'true',
-						'text'  => 'Cleanup the WP meta tags added by default to remove unused items?',
+						'text'  => 'Cleanup the WP meta tags added by default to remove unused items',
 					),
 				),
 			),
@@ -89,7 +86,7 @@ $pages       = array(
 						'title' => 'LoadCSS',
 						'type'  => 'checkbox',
 						'checked' => 'true',
-						'text'  => 'Enable loadcss library to asynchronously load css files and improve performance?',
+						'text'  => 'Enable loadcss library to asynchronously load css files and improve performance',
 					),
 					'instantpage'   => array(
 						'title' => 'InstantPage',
@@ -101,7 +98,7 @@ $pages       = array(
 						'title' => 'Defer JS',
 						'type'  => 'checkbox',
 						'checked' => 'true',
-						'text'  => 'Defer loading of JS to increase speed of visible page load? (Note this does not actually improve overall speed, just the speed of loading for users to be able to interact with the screen)',
+						'text'  => 'Defer loading of JS to increase speed of visible page load. (Note this does not actually improve overall speed, just the speed of loading for users to be able to interact with the screen)',
 					),
 					'browser_cache' => array(
 						'title' => 'Browser Cache',
