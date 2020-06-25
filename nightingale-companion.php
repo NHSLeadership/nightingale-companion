@@ -160,7 +160,12 @@ if ( ( isset( $nightingale_companion_options[ 'show_author_posts' ] ) ) && ( $ni
 if ( ( isset( $nightingale_companion_options[ 'hide_featured_images' ] ) ) && ( $nightingale_companion_options[ 'hide_featured_images' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'display/hide-featured-images.php' );
 }
+
 require_once( plugin_dir_path( __FILE__ ) . 'display/suppress-post-fields.php' );
+
+require_once( plugin_dir_path( __FILE__ ) . 'display/social-links.php' );
+
+require_once( plugin_dir_path( __FILE__ ) . 'functionality/jquery-update.php' );
 /**
  * Add the plugin settings link to the plugins screen for quick access.
  *

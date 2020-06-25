@@ -13,9 +13,12 @@
  *
  */
 if ( ( isset( $nightingale_companion_options[ 'hide_author_name' ] ) ) && ( $nightingale_companion_options[ 'hide_author_name' ] === 'on' ) ) {
+	add_action( 'wp_head', 'nightingale_companion_hide_post_author' );
+	function nightingale_companion_hide_post_author() {
+		?>
+        <style>
 
-	function nightingale_posted_by() {
-
+        </style><?php
 	}
 }
 /**
