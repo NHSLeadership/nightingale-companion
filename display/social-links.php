@@ -83,6 +83,7 @@ function nightingale_companion_social_widgets() {
 add_action( 'wp_footer', 'nightingale_companion_social_widgets' );
 
 
+
 function nightingale_companion_customize_socials( $wp_customize ) {
 	/**
 	 * SECTION: Social Widgets Field

@@ -48,6 +48,18 @@ $pages       = array(
 						'checked' => 'true',
 						'text'    => 'Add an emergency alert banner to be configured across the whole site (if enabled, you will still need to visit Appearance > Customizer > Emergency Alert to configure what actually displays)',
 					),
+					'sharing_buttons' => array(
+						'title'   => 'Sharing Buttons?',
+						'type'    => 'select',
+						'value' => 'none',
+						'choices' => array(
+							'none' => __('Don\'t Display Sharing Buttons', 'nightingale'),
+							'top' => __( 'Show Sharing Buttons above content', 'nightingale'),
+							'bottom' => __( 'Show Sharing Buttons below content', 'nightingale'),
+							'both' => __( 'Show Sharing Buttons above and below content', 'nightingale'),
+						),
+						'text'    => 'Do you want to show social sharing options on your posts and pages?',
+					),
 				),
 			),
 			'function-options'    => array(
