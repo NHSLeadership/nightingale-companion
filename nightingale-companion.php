@@ -91,80 +91,14 @@ add_action( 'nightingale_companion_default_options', 'nightingale_companion_defa
 
 require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
 $nightingale_companion_options = get_option( 'nightingale-companion' ); // Array of All Options set for this plugin.
-if ( ( isset( $nightingale_companion_options[ 'retina_images' ] ) ) && ( $nightingale_companion_options[ 'retina_images' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'display/retina-images.php' );
-}
+
 require_once( plugin_dir_path( __FILE__ ) . 'performance/performance-enhancements.php' );
 
-if ( ( isset( $nightingale_companion_options[ 'enable_emergency_alert' ] ) ) && ( $nightingale_companion_options[ 'enable_emergency_alert' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'functionality/customizer.php' );
-	if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
-		// Add in the emergency header to the top of the display
-		add_filter( 'wp_footer', 'nightingale_companion_emergency_header' );
-
-		/**
-		 * Add in the emergency header to the output hmtl where active
-		 *
-		 * @hook   nightingale_emergency_header
-		 *
-		 * @param  {array} $content The initial content for the output.
-		 *
-		 * @return {array} $content the modified output including the header emergency alert code.
-		 * @since  1.0.0
-		 */
-		function nightingale_companion_emergency_header( $content ) {
-			//get your data
-			require_once( plugin_dir_path( __FILE__ ) . 'functionality/partials/emergency-alert.php' );
-		}
-
-		/**
-		 * jQuery routine to take the output emergency alert and insert it into the corret area of the output html
-		 *
-		 * @since 1.0.0
-		 * @hook  nhsblocks_emergency_footer
-		 */
-		function nightingale_companion_emergency_footer() {
-			echo "<script>
-		const emergencyBlock = document.querySelector('.nhsuk-global-alert');
-		if ( ( emergencyBlock ) ) { 
-			matches = emergencyBlock.matches ? emergencyBlock.matches('.nhsuk-global-alert') : emergencyBlock.msMatchesSelector('.nhsuk-global-alert');
-			if ( matches === true ) {
-				const header = document.querySelector('header');
-					jQuery('.nhsuk-global-alert').insertAfter( header );
-			}
-		}	
-	</script>";
-		}
-
-		add_action( 'wp_footer', 'nightingale_companion_emergency_footer' );
-	}
-}
+require_once( plugin_dir_path( __FILE__ ) . 'display/display-enhancements.php' );
 
 if ( ( isset( $nightingale_companion_options[ 'excerpts_as_meta_description' ] ) ) && ( $nightingale_companion_options[ 'excerpts_as_meta_description' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'functionality/simple-meta.php' );
 }
-
-if ( ( isset( $nightingale_companion_options[ 'style_login_page' ] ) ) && ( $nightingale_companion_options[ 'style_login_page' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
-}
-
-/* Display Author Bio */
-if ( ( isset( $nightingale_companion_options[ 'show_author_bio' ] ) ) && ( $nightingale_companion_options[ 'show_author_bio' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'display/author-bio.php' );
-}
-
-/* Display Other Posts By Author */
-if ( ( isset( $nightingale_companion_options[ 'show_author_posts' ] ) ) && ( $nightingale_companion_options[ 'show_author_posts' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'display/posts-by-author.php' );
-}
-
-if ( ( isset( $nightingale_companion_options[ 'hide_featured_images' ] ) ) && ( $nightingale_companion_options[ 'hide_featured_images' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'display/hide-featured-images.php' );
-}
-
-require_once( plugin_dir_path( __FILE__ ) . 'display/suppress-post-fields.php' );
-
-require_once( plugin_dir_path( __FILE__ ) . 'display/social-links.php' );
 
 if ( ( isset( $nightingale_companion_options[ 'update_jquery' ] ) ) && ( $nightingale_companion_options[ 'update_jquery' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'functionality/jquery-update.php' );
