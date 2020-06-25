@@ -1,0 +1,96 @@
+/*!
+ * socialfloating.js 0.1.0
+ * https://github.com/ixtlistudios/jquery.socialfloating.js
+ *
+ * Copyright 2020, Ixtli Studios
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+.contact-bar {
+  position: fixed;
+  bottom: 80px;
+  z-index: 10;
+}
+.contact-bar.left {
+  left: -40px;
+}
+.contact-bar.right {
+  right: -40px;
+}
+
+.contact-bar.slide-on-scroll {
+  position: absolute;
+}
+
+.cb-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin-bottom: 0.1em;
+  text-align: center;
+  line-height: 40px;
+  font-size: 17px;
+  background: #8e8e93;
+  color: #fff;
+  position: relative;
+
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+  -webkit-transition: all 250ms;
+     -moz-transition: all 250ms;
+          transition: all 250ms;
+}
+.left .cb-link {
+  left: 0;
+  border-radius: 0 0.4em 0.4em 0;
+  border: 1px solid #425563;
+}
+.right .cb-link {
+  right: 0;
+  border-radius: 0.4em 0 0 0.4em;
+  border: 1px solid #425563;
+}
+.cb-link .icon {
+  margin: 0 !important;
+}
+.left .cb-link:hover,
+.left .cb-link:focus,
+.left .cb-link:active {
+  color: #fff;
+  padding-left: 10px;
+  width: 50px;
+}
+.right .cb-link:hover,
+.right .cb-link:focus,
+.right .cb-link:active {
+  color: #fff;
+  padding-right: 10px;
+  width: 50px;
+}
+.left .cb-link.cb-hidden {
+  left: -40px;
+}
+.right .cb-link.cb-hidden {
+  right: -40px;
+}
+
+.cb-link.separated {
+  margin-top: 0.5em;
+}
+
+.toggle-bar,
+.cb-link.toggle-bar:focus,
+.cb-link.toggle-bar:hover,
+.cb-link.toggle-bar:active {
+  background: #ccc;
+  color: #000;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  width: 40px;
+}

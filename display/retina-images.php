@@ -76,6 +76,7 @@ function nightingale_companion_retina_support_create_images( $file, $width, $hei
 }
 
 add_filter( 'delete_attachment', 'nightingale_companion_delete_retina_support_images' );
+
 /**
  * Delete retina-ready images
  *
