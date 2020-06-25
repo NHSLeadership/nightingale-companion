@@ -80,8 +80,9 @@ function nightingale_companion_default_values() {
 		'show_author_bio'              => 'off',
 		'show_author_posts'            => 'off',
 		'hide_featured_images'         => 'off',
-		'hide_author_name' => 'off',
-		'hide_post_date' => 'off',
+		'hide_author_name'             => 'off',
+		'hide_post_date'               => 'off',
+		'update_jquery'                => 'off',
 	);
 	add_option( 'nightingale-companion', $defaults );
 }
@@ -165,7 +166,10 @@ require_once( plugin_dir_path( __FILE__ ) . 'display/suppress-post-fields.php' )
 
 require_once( plugin_dir_path( __FILE__ ) . 'display/social-links.php' );
 
-require_once( plugin_dir_path( __FILE__ ) . 'functionality/jquery-update.php' );
+if ( ( isset( $nightingale_companion_options[ 'update_jquery' ] ) ) && ( $nightingale_companion_options[ 'update_jquery' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'functionality/jquery-update.php' );
+}
+
 /**
  * Add the plugin settings link to the plugins screen for quick access.
  *
