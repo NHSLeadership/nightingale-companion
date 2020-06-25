@@ -34,6 +34,9 @@ require_once( plugin_dir_path( __FILE__ ) . 'suppress-post-fields.php' );
 // the checks for enabling etc are all in the file itself, so no wrap around this require
 require_once( plugin_dir_path( __FILE__ ) . 'social-links.php' );
 
+// the checks for enabling etc are all in the file itself, so no wrap around this require
+require_once( plugin_dir_path( __FILE__ ) . 'social-sharing.php' );
+
 if ( ( isset( $nightingale_companion_options[ 'enable_emergency_alert' ] ) ) && ( $nightingale_companion_options[ 'enable_emergency_alert' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'customizer.php' );
 	if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
