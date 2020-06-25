@@ -84,6 +84,7 @@ function nightingale_companion_default_values() {
 		'hide_post_date'               => 'off',
 		'update_jquery'                => 'off',
 		'sharing_buttons'              => 'off',
+		'sharing_title'                => 'Share this:',
 	);
 	add_option( 'nightingale-companion', $defaults );
 }

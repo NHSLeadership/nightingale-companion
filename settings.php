@@ -58,7 +58,12 @@ $pages       = array(
 							'bottom' => __( 'Show Sharing Buttons below content', 'nightingale'),
 							'both' => __( 'Show Sharing Buttons above and below content', 'nightingale'),
 						),
-						'text'    => 'Do you want to show social sharing options on your posts and pages?',
+					),
+					'sharing_title' => array(
+						'title' => 'Sharing Title',
+						'type'  => 'text',
+						'value' => 'Share this:',
+						'text'  => 'The text to show before your sharing buttons',
 					),
 				),
 			),
