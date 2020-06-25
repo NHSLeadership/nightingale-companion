@@ -76,7 +76,12 @@ function nightingale_companion_default_values() {
 		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
 		'move_scripts_to_footer'       => 'on', // Sending Scripts to the Footer
 		'style_login_page'             => 'on',
-		'enable_emergency_alert'       => 'on'
+		'enable_emergency_alert'       => 'on',
+		'show_author_bio'              => 'off',
+		'show_author_posts'            => 'off',
+		'hide_featured_images'         => 'off',
+		'hide_author_name' => 'off',
+		'hide_post_date' => 'off',
 	);
 	add_option( 'nightingale-companion', $defaults );
 }
@@ -142,6 +147,20 @@ if ( ( isset( $nightingale_companion_options[ 'style_login_page' ] ) ) && ( $nig
 	require_once( plugin_dir_path( __FILE__ ) . 'display/login.php' );
 }
 
+/* Display Author Bio */
+if ( ( isset( $nightingale_companion_options[ 'show_author_bio' ] ) ) && ( $nightingale_companion_options[ 'show_author_bio' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'display/author-bio.php' );
+}
+
+/* Display Other Posts By Author */
+if ( ( isset( $nightingale_companion_options[ 'show_author_posts' ] ) ) && ( $nightingale_companion_options[ 'show_author_posts' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'display/posts-by-author.php' );
+}
+
+if ( ( isset( $nightingale_companion_options[ 'hide_featured_images' ] ) ) && ( $nightingale_companion_options[ 'hide_featured_images' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'display/hide-featured-images.php' );
+}
+require_once( plugin_dir_path( __FILE__ ) . 'display/suppress-post-fields.php' );
 /**
  * Add the plugin settings link to the plugins screen for quick access.
  *
