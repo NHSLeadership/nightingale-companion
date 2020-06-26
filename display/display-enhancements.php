@@ -29,9 +29,6 @@ if ( ( isset( $nightingale_companion_options[ 'hide_featured_images' ] ) ) && ( 
 }
 
 // the checks for enabling etc are all in the file itself, so no wrap around this require
-require_once( plugin_dir_path( __FILE__ ) . 'suppress-post-fields.php' );
-
-// the checks for enabling etc are all in the file itself, so no wrap around this require
 require_once( plugin_dir_path( __FILE__ ) . 'social-links.php' );
 
 // the checks for enabling etc are all in the file itself, so no wrap around this require

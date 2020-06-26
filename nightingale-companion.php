@@ -7,7 +7,7 @@
 * License: GPL v3
 * Requires at least: 5.0
 * Tested up to: 5.4
-* Version: 1.0.2
+* Version: 1.0.5
 *
 * @package nightingale-companion
 */
@@ -75,16 +75,14 @@ function nightingale_companion_default_values() {
 		'compress_html'                => 'on', // Basic Minification of Output
 		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
 		'move_scripts_to_footer'       => 'on', // Sending Scripts to the Footer
-		'style_login_page'             => 'on',
-		'enable_emergency_alert'       => 'on',
-		'show_author_bio'              => 'off',
-		'show_author_posts'            => 'off',
-		'hide_featured_images'         => 'off',
-		'hide_author_name'             => 'off',
-		'hide_post_date'               => 'off',
-		'update_jquery'                => 'off',
-		'sharing_buttons'              => 'off',
-		'sharing_title'                => 'Share this:',
+		'style_login_page'             => 'on', // Add styling to login page to match rest of theme
+		'enable_emergency_alert'       => 'on', // Add functionality to show emergency alert (options get added to theme customiser)
+		'show_author_bio'              => 'off', // show an author bio section below posts
+		'show_author_posts'            => 'off', // show other posts by author below posts
+		'hide_featured_images'         => 'off', // suppress featured images on individual pages
+		'update_jquery'                => 'off', // update jQuery to 3.4.1
+		'sharing_buttons'              => 'none', // enable sharing buttons on posts
+		'sharing_title'                => 'Share this:', // set title of sharing buttons region
 	);
 	if ( 1 === $wpmu ) {
 		if ( ! get_option( 'nightingale-companion' ) ) {

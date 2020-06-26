@@ -4,7 +4,7 @@
  *
  * @package   nightingale-companion
  * @copyright NHS Leadership Academy, Nick Summerfield & Tony Blacker
- * @version   1.0 3rd June 2020
+ * @version   1.0.5 26th June 2020
  */
 
 /**
@@ -145,18 +145,6 @@ $pages       = array(
 						'type'    => 'checkbox',
 						'checked' => '',
 						'text'    => 'Suppress featured images from displaying on single post pages. i.e. only show featured image on pages with multiple posts on them.',
-					),
-					'hide_author_name'     => array(
-						'title'   => 'Hide Author Name',
-						'type'    => 'checkbox',
-						'checked' => '',
-						'text'    => 'Prevent author from showing up on posts.',
-					),
-					'hide_post_date'       => array(
-						'title'   => 'Hide Post Date',
-						'type'    => 'checkbox',
-						'checked' => '',
-						'text'    => 'Prevent date of publishing from showing on posts',
 					),
 					'show_author_bio'      => array(
 						'title'   => 'Show Author Bio?',

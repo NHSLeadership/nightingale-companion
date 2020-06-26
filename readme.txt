@@ -4,7 +4,7 @@ Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.3
 Tested up to: 5.4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.5
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -74,3 +74,25 @@ No. This improves the performance and accessibility of your site. But your site 
 influenced by your content, your server environment and your other plugins running on your website. We have tested this
 with sample content on a site running the Nightingale theme, this plgin and the NHSBlocks plugin. With these parameters,
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
+
+ == Changelog ==
+
+ = 1.0.5 =
+ Bugfixes:
+  - corrected install routine to add correct default settings to plugin
+  - corrected check to see if child theme of Nightingale is in use, if so allow activation
+  - Added multisite functionality. If you have a previous version to enable multisite, please remove the plugin and
+  reinstall so that the install routine runs again to activate this correctly.
+ Feature additions:
+  - Added social sharing buttons functionality. This uses the addthis library and is configurable to be disabled, above
+  posts, below posts or both
+  - Added editable title for social sharing region. Default is "Share This:"
+  - added update jQuery option to enable more recent version of jQuery to be loaded to your WP install. Please note this
+   may cause othe rplugins to fail. If enabling, use with caution and test thoroughly. Default is disabled.
+  - Added blog settings, allowing you to suppress featured images on individual posts/pages, add an author bio section and add other posts by author section.
+  - Added social widget to allow you to link to your social channels using a panel of buttons that stick to either the
+  left or right of display. Configurable via Customiser > Social Widget, includes FaceBook, Twitter, YouTube, Vimeo,
+  LinkedIn and RSS feed.
+
+ = 1.0.2 =
+Initial release.

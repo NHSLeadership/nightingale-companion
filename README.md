@@ -24,6 +24,9 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.
  - Style login page - Modified the login page to use the theme design and layout
  - Enable Emergency Alert - Adds the emergency alert header to the theme customiser. Even when enabled, you will still need to add content via themes > customiser to make it display on your site.
+ - Sharing buttons. Choose whether you would like sharing buttons showing on individual posts and pages. You can
+  select to not show these, show them at the top of your content, below your content or both. This is a global setting.
+ - Sharing Title - choose what text to show before the sharing buttons. Default is `Share This:`
  
  ### Functionality ###
  
@@ -31,6 +34,9 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
  description tag. If you have an alternative method of generating this meta tag, you should disable this option.
  - Cleanup meta - removes lots of WP native tags included in the header region.
+ - Update jQuery - USE WITH CAUTION. This updates the jQuery for your WordPress to 3.4.1. The admin side is
+  unaffected. If enabling this, test ALL functionality of your site, as some plugin functionality for other plugins
+   on your site may cease to work as expected.
  
  ### Performance ###
  - [LoadCSS](https://github.com/filamentgroup/loadCSS) - this uses the loadcss javascript library which defers loading of
@@ -47,6 +53,13 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  - Compress HTML output - very basic minification of output HTML. This does not combine or minify included files. Will
  reduce size of output HTML by around 3-5%
  - Move Scripts to Footer - move the javascript and stylesheet files to the footer. This enables visible display of the page quicker.
+ 
+ 
+ ### Blog Settings ###
+ - Hide Featured Images - this will prevent featured images from being displayed on individual posts and pages
+ . Global setting.
+ - Show Author Bio - this adds an author bio section to the bottom of posts, including a link to all posts by author.
+ - Show Author Posts - displays the most recent 6 posts from the author at the bottom of post.
  
 ## Development Instructions
 To develop your own modifications, you will need to download the full [repo from GitHub](https://github.com/NHSLeadership/nightingale-companion) - you should be in your `wp-content/plugins` folder.
