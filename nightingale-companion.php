@@ -86,7 +86,15 @@ function nightingale_companion_default_values() {
 		'sharing_buttons'              => 'off',
 		'sharing_title'                => 'Share this:',
 	);
-	add_option( 'nightingale-companion', $defaults );
+	if ( 1 === $wpmu ) {
+		if ( ! get_option( 'nightingale-companion' ) ) {
+			add_site_option( 'nightingale-companion', $defaults, '', 'yes' );
+		}
+	} else {
+		if ( ! get_option( 'nightingale-companion' ) ) {
+			add_option( 'nightingale-companion', $defaults, '', 'yes' );
+		}
+	}
 }
 
 add_action( 'nightingale_companion_default_options', 'nightingale_companion_default_values' );
