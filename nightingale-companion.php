@@ -7,7 +7,7 @@
 * License: GPL v3
 * Requires at least: 5.0
 * Tested up to: 5.4
-* Version: 1.0.5
+* Version: 1.0.5.1
 *
 * @package nightingale-companion
 */
@@ -64,7 +64,6 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
  */
 function nightingale_companion_default_values() {
 	$defaults = array(
-		'retina_images'                => 'on', // EnableRetina Images
 		'loadcss'                      => 'on', // Enable Load CSS
 		'instantpage'                  => 'on', // Enable InstantPage
 		'defer_js'                     => 'on', // Enable Defer JS

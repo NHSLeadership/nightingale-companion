@@ -6,9 +6,7 @@
  * @copyright NHS Leadership Academy, Tony Blacker
  * @version   1.0 25th June 2020
  */
-if ( ( isset( $nightingale_companion_options[ 'retina_images' ] ) ) && ( $nightingale_companion_options[ 'retina_images' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'retina-images.php' );
-}
+
 
 if ( ( isset( $nightingale_companion_options[ 'style_login_page' ] ) ) && ( $nightingale_companion_options[ 'style_login_page' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'login.php' );

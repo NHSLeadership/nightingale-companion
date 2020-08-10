@@ -4,7 +4,7 @@ Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.3
 Tested up to: 5.4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.5.1
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -19,9 +19,6 @@ This plugin is a companion to the Nightingale theme. It is aimed at improving pe
 that uses the Nightingale theme. The plugin adds additional functionality to the theme, each component of which is
 enabled by default on installation but can be switched off easily via the admin panel > Settings > Nightingale Companion
 
- - Retina Images - this enables your site to serve double quality images for retina display devices, and makes multiple
- sizes for each of the sizes configured on your site. This all happens automatically in the background and will improve
- the look of your thumbnails, images and banners across your site for retina capable screens.
  - Disable Emojis - this disables the default emoji packages that ship with WordPress, which load on every single page
  of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.
  - LoadCSS - this uses the loadcss javascript library (https://github.com/filamentgroup/loadCSS) which defers loading of
@@ -76,6 +73,15 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+= 1.1.0 =
+Security and stability update:
+Thank you to all users submitting feedback. This release sees the removal of:
+ - Retina Images
+ -
+
+= 1.0.5.1 =
+Maintenance release
 
  = 1.0.5 =
  Bugfixes:

@@ -24,12 +24,6 @@ $pages       = array(
 			'display-options'     => array(
 				'title'  => __( 'Display Options', 'nightingale' ),
 				'fields' => array(
-					'retina_images'   => array(
-						'title'   => 'Retina Images',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Enable retina display using retina.js?',
-					),
 					'disable_emojis'  => array(
 						'title'   => 'Disable Emojis',
 						'type'    => 'checkbox',

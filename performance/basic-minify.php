@@ -9,14 +9,14 @@
  */
 
 /**
- * Class WP_HTML_Compression - compress the output HTML by removing whitespace
+ * Class Nightingale_Companion_WP_HTML_Compression - compress the output HTML by removing whitespace
  * @since 1.0.0
- * @hook WP_HTML_Compression
+ * @hook Nightingale_Companion_WP_HTML_Compression
  */
 class Nightingale_Companion_WP_HTML_Compression {
 	// Settings
 	protected $compress_css = true;
-	protected $compress_js = true;
+	protected $compress_js = false;
 	protected $info_comment = true;
 	protected $remove_comments = true;
 
