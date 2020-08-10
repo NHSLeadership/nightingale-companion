@@ -31,8 +31,6 @@ enabled by default on installation but can be switched off easily via the admin 
  - Set Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
  seconds that this local cache should be stored, defaulting to 43200 (12 hours)
  - Cleanup WordPress meta tags - removes lots of WP native tags included in the header region.
- - Compress HTML output - very basic minification of output HTML. This does not combine or minify included files. Will
- reduce size of output HTML by around 3-5%
  - Use Excerpts as Meta Description - WordPress automatically takes the first 55 words of a post or page to create an
  excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
  description tag. If you have an alternative method of generating this meta tag, you should disable this option.
@@ -78,7 +76,7 @@ Thank you to all users submitting feedback. This release sees the removal of:
  - Retina Images
  - Update jQuery
  - LazyLoading
-
+ - Compress HTML
 
 = 1.0.5.1 =
 Maintenance release

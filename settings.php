@@ -105,12 +105,6 @@ $pages       = array(
 						'value' => '43200',
 						'text'  => 'Set Browser Cache duration in seconds. 300 = 5 minutes, 43200 = 12 hours. Think very carefully before setting to a higher value than 12 hours!',
 					),
-					'compress_html' => array(
-						'title'   => 'Compress HTML',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Basic compression of output html (removes white space in the raw html that is sent to the browser)',
-					),
 					'move_scripts'  => array(
 						'title'   => 'Move Scripts to Footer',
 						'type'    => 'checkbox',

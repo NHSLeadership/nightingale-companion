@@ -70,7 +70,6 @@ function nightingale_companion_default_values() {
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
 		'disable_emojis'               => 'on', // Disable Emojis
 		'cleanup_meta'                 => 'on', // Cleanup WP meta tags
-		'compress_html'                => 'on', // Basic Minification of Output
 		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
 		'move_scripts_to_footer'       => 'on', // Sending Scripts to the Footer
 		'style_login_page'             => 'on', // Add styling to login page to match rest of theme
