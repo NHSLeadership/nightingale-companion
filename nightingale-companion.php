@@ -68,7 +68,6 @@ function nightingale_companion_default_values() {
 		'instantpage'                  => 'on', // Enable InstantPage
 		'defer_js'                     => 'on', // Enable Defer JS
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
-		'lazy_loading'                 => 'on', // Enable LazyLoading
 		'disable_emojis'               => 'on', // Disable Emojis
 		'cleanup_meta'                 => 'on', // Cleanup WP meta tags
 		'compress_html'                => 'on', // Basic Minification of Output

@@ -30,8 +30,6 @@ enabled by default on installation but can be switched off easily via the admin 
  after HTML has loaded in.
  - Set Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
  seconds that this local cache should be stored, defaulting to 43200 (12 hours)
- - Enable LazyLoading - adds a tag to all media resources to use native lazyloading. This will work on all modern
- browsers (except FireFox)
  - Cleanup WordPress meta tags - removes lots of WP native tags included in the header region.
  - Compress HTML output - very basic minification of output HTML. This does not combine or minify included files. Will
  reduce size of output HTML by around 3-5%
@@ -79,6 +77,8 @@ Security and stability update:
 Thank you to all users submitting feedback. This release sees the removal of:
  - Retina Images
  - Update jQuery
+ - LazyLoading
+
 
 = 1.0.5.1 =
 Maintenance release

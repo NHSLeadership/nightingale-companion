@@ -105,12 +105,6 @@ $pages       = array(
 						'value' => '43200',
 						'text'  => 'Set Browser Cache duration in seconds. 300 = 5 minutes, 43200 = 12 hours. Think very carefully before setting to a higher value than 12 hours!',
 					),
-					'lazyloading'   => array(
-						'title'   => 'Lazy Loading',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => ' Lazy Loading delays resources loading until the point they are in display. This improves performance on pages with images and videos.',
-					),
 					'compress_html' => array(
 						'title'   => 'Compress HTML',
 						'type'    => 'checkbox',

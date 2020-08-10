@@ -26,18 +26,6 @@ if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'browser_cache
 	require_once( plugin_dir_path( __FILE__ ) . 'cache-headers.php' );
 }
 
-//lazy loading - this will eventually be part of core WP
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'lazy_loading' ] ) ) && ( $nightingale_companion_options[ 'lazy_loading' ] === 'on' ) ) {
-	if (
-		! function_exists( 'wp_lazy_loading_enabled' ) &&
-		! function_exists( 'wp_filter_content_tags' ) &&
-		! function_exists( 'wp_img_tag_add_loading_attr' ) &&
-		! function_exists( 'wp_img_tag_add_srcset_and_sizes_attr' )
-	) {
-		require_once( plugin_dir_path( __FILE__ ) . 'lazy-loading.php' );
-	}
-}
-
 // disableemojis.
 if ( ( isset( $nightingale_companion_options[ 'disable_emojis' ] ) ) && ( $nightingale_companion_options[ 'disable_emojis' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'disable-emojis.php' );
