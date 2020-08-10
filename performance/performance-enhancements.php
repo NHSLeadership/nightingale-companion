@@ -17,8 +17,13 @@ if ( ( isset( $nightingale_companion_options[ 'instantpage' ] ) ) && ( $nighting
 }
 
 // defer JS loading to footer.
-if ( ( isset( $nightingale_companion_options[ 'defer_js' ] ) ) && ( $nightingale_companion_options[ 'defer_js' ] === 'on' ) ) {
+if ( ( isset( $nightingale_companion_options[ 'javascript_loading' ] ) ) && ( $nightingale_companion_options[ 'javascript_loading' ] === 'defer_js' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'defer-js.php' );
+} else if ( ( isset( $nightingale_companion_options[ 'javascript_loading' ] ) ) && ( $nightingale_companion_options[ 'javascript_loading' ] === 'footer' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
+} else if ( ( isset( $nightingale_companion_options[ 'javascript_loading' ] ) ) && ( $nightingale_companion_options[ 'javascript_loading' ] === 'both' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'defer-js.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
 }
 
 // set cache headers.
@@ -37,7 +42,4 @@ if ( ( isset( $nightingale_companion_options[ 'cleanup_meta' ] ) ) && ( $nightin
 }
 
 
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'move_scripts_to_footer' ] ) ) && ( $nightingale_companion_options[ 'move_scripts_to_footer' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'script-to-footer.php' );
-}
 

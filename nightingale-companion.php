@@ -66,12 +66,11 @@ function nightingale_companion_default_values() {
 	$defaults = array(
 		'loadcss'                      => 'on', // Enable Load CSS
 		'instantpage'                  => 'on', // Enable InstantPage
-		'defer_js'                     => 'on', // Enable Defer JS
+		'defer_js'                     => 'none', // Enable Defer JS
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
 		'disable_emojis'               => 'on', // Disable Emojis
 		'cleanup_meta'                 => 'on', // Cleanup WP meta tags
 		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
-		'move_scripts_to_footer'       => 'on', // Sending Scripts to the Footer
 		'style_login_page'             => 'on', // Add styling to login page to match rest of theme
 		'enable_emergency_alert'       => 'on', // Add functionality to show emergency alert (options get added to theme customiser)
 		'show_author_bio'              => 'off', // show an author bio section below posts

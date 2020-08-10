@@ -94,10 +94,15 @@ $pages       = array(
 						'text'    => 'Enable instantpage library - this starts a page loading when a mouse hovers over it which improves User Experience',
 					),
 					'defer_js'      => array(
-						'title'   => 'Defer JS',
-						'type'    => 'checkbox',
-						'checked' => 'true',
+						'title'   => 'Javascript Loading',
 						'text'    => 'Defer loading of JS to increase speed of visible page load. (Note this does not actually improve overall speed, just the speed of loading for users to be able to interact with the screen)',
+						'type'    => 'select',
+						'choices' => array(
+							'none' => 'None',
+							'defer_js' => 'Defer JS',
+							'footer' => 'Move to Footer',
+							'both' => 'Both',
+						),
 					),
 					'browser_cache' => array(
 						'title' => 'Browser Cache',

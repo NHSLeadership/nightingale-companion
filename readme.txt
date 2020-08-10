@@ -27,7 +27,7 @@ enabled by default on installation but can be switched off easily via the admin 
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
  - DeferJS - adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
- after HTML has loaded in.
+ after HTML has loaded in. Alternatively, you can simply move your scripts to the footer, or you can do both.
  - Set Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
  seconds that this local cache should be stored, defaulting to 43200 (12 hours)
  - Cleanup WordPress meta tags - removes lots of WP native tags included in the header region.
@@ -72,7 +72,10 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 
 = 1.1.0 =
 Security and stability update:
-Thank you to all users submitting feedback. This release sees the removal of:
+Thank you to all users submitting feedback.
+Javascript loading has been combined, with a simplified control. Now you have the option of deferring JS to after
+pageload, moving scripts to the footer, or both, or neither.
+This release sees the removal of:
  - Retina Images
  - Update jQuery
  - LazyLoading
