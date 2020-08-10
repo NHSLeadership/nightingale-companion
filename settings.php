@@ -76,12 +76,6 @@ $pages       = array(
 						'checked' => 'true',
 						'text'    => 'Cleanup the WP meta tags added by default to remove unused items',
 					),
-					'update_jquery'     => array(
-						'title'   => 'Update jQuery',
-						'type'    => 'checkbox',
-						'checked' => '',
-						'text'    => 'Update the core jQuery to 3.4.1. Use with caution, this may break certain features with other plugins. Enable at your own risk.',
-					),
 				),
 			),
 			'performance-options' => array(

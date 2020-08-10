@@ -79,7 +79,6 @@ function nightingale_companion_default_values() {
 		'show_author_bio'              => 'off', // show an author bio section below posts
 		'show_author_posts'            => 'off', // show other posts by author below posts
 		'hide_featured_images'         => 'off', // suppress featured images on individual pages
-		'update_jquery'                => 'off', // update jQuery to 3.4.1
 		'sharing_buttons'              => 'none', // enable sharing buttons on posts
 		'sharing_title'                => 'Share this:', // set title of sharing buttons region
 	);
@@ -107,9 +106,6 @@ if ( ( isset( $nightingale_companion_options[ 'excerpts_as_meta_description' ] )
 	require_once( plugin_dir_path( __FILE__ ) . 'functionality/simple-meta.php' );
 }
 
-if ( ( isset( $nightingale_companion_options[ 'update_jquery' ] ) ) && ( $nightingale_companion_options[ 'update_jquery' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'functionality/jquery-update.php' );
-}
 
 /**
  * Add the plugin settings link to the plugins screen for quick access.

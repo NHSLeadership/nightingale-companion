@@ -78,7 +78,7 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 Security and stability update:
 Thank you to all users submitting feedback. This release sees the removal of:
  - Retina Images
- -
+ - Update jQuery
 
 = 1.0.5.1 =
 Maintenance release
