@@ -6,8 +6,8 @@
 * Author: Nick Summerfield, NHS Leadership Academy
 * License: GPL v3
 * Requires at least: 5.0
-* Tested up to: 5.4
-* Version: 1.0.5.1
+* Tested up to: 5.5
+* Version: 1.1.0
 *
 * @package nightingale-companion
 */
@@ -66,7 +66,7 @@ function nightingale_companion_default_values() {
 	$defaults = array(
 		'loadcss'                      => 'on', // Enable Load CSS
 		'instantpage'                  => 'on', // Enable InstantPage
-		'defer_js'                     => 'none', // Enable Defer JS
+		'javascript_loading'           => 'none', // Enable Defer JS
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
 		'disable_emojis'               => 'on', // Disable Emojis
 		'cleanup_meta'                 => 'on', // Cleanup WP meta tags

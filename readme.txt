@@ -2,9 +2,9 @@
 Contributors: Nick-Summerfield, tblacker7
 Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
-Requires at least: 5.3
-Tested up to: 5.4.1
-Stable tag: 1.0.5.1
+Requires at least: 5.0
+Tested up to: 5.5
+Stable tag: 1.1.0
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -73,13 +73,16 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 = 1.1.0 =
 Security and stability update:
 Thank you to all users submitting feedback.
-Javascript loading has been combined, with a simplified control. Now you have the option of deferring JS to after
+ - Javascript loading has been combined, with a simplified control. Now you have the option of deferring JS to after
 pageload, moving scripts to the footer, or both, or neither.
-This release sees the removal of:
- - Retina Images
- - Update jQuery
- - LazyLoading
- - Compress HTML
+ - Cache control has been improved to bust the cache for logged in users, so people adding content or editing can see
+ their changes reflected without doing a hard refresh.
+ - This release sees the removal of:
+   - Retina Images - the theme instead uses WordPress native multiimage display.
+   - Update jQuery - WP core is updating jQuery through the next few releases, this feature is no longer required.
+   - LazyLoading - as of WP 5.5. this is a native function so does not need to be in a plugin.
+   - Compress HTML - this was breaking data reporting from Google Tag Manager and also impacted some javascript triggers
+   .
 
 = 1.0.5.1 =
 Maintenance release

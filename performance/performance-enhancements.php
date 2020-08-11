@@ -27,7 +27,7 @@ if ( ( isset( $nightingale_companion_options[ 'javascript_loading' ] ) ) && ( $n
 }
 
 // set cache headers.
-if ( ( ! is_admin() ) && ( isset( $nightingale_companion_options[ 'browser_cache' ] ) ) && ( $nightingale_companion_options[ 'browser_cache' ] > 0 ) ) {
+if  ( ( isset( $nightingale_companion_options[ 'browser_cache' ] ) ) && ( $nightingale_companion_options[ 'browser_cache' ] > 0 ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'cache-headers.php' );
 }
 

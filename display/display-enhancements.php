@@ -54,7 +54,7 @@ if ( ( isset( $nightingale_companion_options[ 'enable_emergency_alert' ] ) ) && 
 		}
 
 		/**
-		 * jQuery routine to take the output emergency alert and insert it into the corret area of the output html
+		 * jQuery routine to take the output emergency alert and insert it into the correct area of the output html
 		 *
 		 * @since 1.0.0
 		 * @hook  nhsblocks_emergency_footer
@@ -73,6 +73,29 @@ if ( ( isset( $nightingale_companion_options[ 'enable_emergency_alert' ] ) ) && 
 		}
 
 		add_action( 'wp_footer', 'nightingale_companion_emergency_footer' );
+	}
+}
+
+
+if ( ( isset( $nightingale_companion_options[ 'schema_footer' ] ) ) && ( $nightingale_companion_options[ 'schema_footer' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'customizer.php' );
+	if ( get_theme_mod( 'emergency_on' ) === 'yes' ) { // only do this bit if the emergency banner is actually enabled at this time.
+		// Add in the emergency header to the top of the display
+		add_filter( 'wp_footer', 'nightingale_companion_schema_footer' );
+
+
+
+		/**
+		 * Add in schema.org Organisation information to the footer region.
+		 *
+		 * @since 1.0.0
+		 * @hook  nightingale_companion_schema_footer
+		 */
+		function nightingale_companion_schema_footer() {
+
+		}
+
+		add_action( 'wp_footer', 'nightingale_companion_schema_footer' );
 	}
 }
 

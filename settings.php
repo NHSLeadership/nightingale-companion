@@ -98,7 +98,7 @@ $pages       = array(
 						'text'    => 'Defer loading of JS to increase speed of visible page load. (Note this does not actually improve overall speed, just the speed of loading for users to be able to interact with the screen)',
 						'type'    => 'select',
 						'choices' => array(
-							'none' => 'None',
+							'none' => 'Leave as standard',
 							'defer_js' => 'Defer JS',
 							'footer' => 'Move to Footer',
 							'both' => 'Both',
@@ -109,12 +109,6 @@ $pages       = array(
 						'type'  => 'text',
 						'value' => '43200',
 						'text'  => 'Set Browser Cache duration in seconds. 300 = 5 minutes, 43200 = 12 hours. Think very carefully before setting to a higher value than 12 hours!',
-					),
-					'move_scripts'  => array(
-						'title'   => 'Move Scripts to Footer',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Send scripts and styles to the footer. This may cause issues with other plugins. If this occurs, please disable.',
 					),
 				),
 			),
