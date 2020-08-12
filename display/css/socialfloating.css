@@ -14,10 +14,10 @@
   z-index: 10;
 }
 .contact-bar.left {
-  left: -40px;
+  left: -50px;
 }
 .contact-bar.right {
-  right: -40px;
+  right: -50px;
 }
 
 .contact-bar.slide-on-scroll {
@@ -26,13 +26,13 @@
 
 .cb-link {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   padding: 0;
   margin-bottom: 0.1em;
   text-align: center;
-  line-height: 40px;
-  font-size: 17px;
+  line-height: 50px;
+  font-size: 20px;
   background: #8e8e93;
   color: #fff;
   position: relative;
@@ -47,12 +47,12 @@
 }
 .left .cb-link {
   left: 0;
-  border-radius: 0 0.4em 0.4em 0;
+  border-radius: 0;
   border: 1px solid #425563;
 }
 .right .cb-link {
   right: 0;
-  border-radius: 0.4em 0 0 0.4em;
+  border-radius: 0;
   border: 1px solid #425563;
 }
 .cb-link .icon {
@@ -62,21 +62,18 @@
 .left .cb-link:focus,
 .left .cb-link:active {
   color: #fff;
-  padding-left: 10px;
-  width: 50px;
+
 }
 .right .cb-link:hover,
 .right .cb-link:focus,
 .right .cb-link:active {
   color: #fff;
-  padding-right: 10px;
-  width: 50px;
 }
 .left .cb-link.cb-hidden {
-  left: -40px;
+  left: -50px;
 }
 .right .cb-link.cb-hidden {
-  right: -40px;
+  right: -50px;
 }
 
 .cb-link.separated {
@@ -92,5 +89,5 @@
   border: 0;
   outline: 0;
   padding: 0;
-  width: 40px;
+  width: 50px;
 }

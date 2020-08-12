@@ -2,9 +2,9 @@
 Contributors: Nick-Summerfield, tblacker7
 Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
-Requires at least: 5.3
-Tested up to: 5.4.1
-Stable tag: 1.0.5
+Requires at least: 5.0
+Tested up to: 5.5
+Stable tag: 1.1.0
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -19,9 +19,6 @@ This plugin is a companion to the Nightingale theme. It is aimed at improving pe
 that uses the Nightingale theme. The plugin adds additional functionality to the theme, each component of which is
 enabled by default on installation but can be switched off easily via the admin panel > Settings > Nightingale Companion
 
- - Retina Images - this enables your site to serve double quality images for retina display devices, and makes multiple
- sizes for each of the sizes configured on your site. This all happens automatically in the background and will improve
- the look of your thumbnails, images and banners across your site for retina capable screens.
  - Disable Emojis - this disables the default emoji packages that ship with WordPress, which load on every single page
  of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.
  - LoadCSS - this uses the loadcss javascript library (https://github.com/filamentgroup/loadCSS) which defers loading of
@@ -30,14 +27,10 @@ enabled by default on installation but can be switched off easily via the admin 
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
  - DeferJS - adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
- after HTML has loaded in.
+ after HTML has loaded in. Alternatively, you can simply move your scripts to the footer, or you can do both.
  - Set Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
  seconds that this local cache should be stored, defaulting to 43200 (12 hours)
- - Enable LazyLoading - adds a tag to all media resources to use native lazyloading. This will work on all modern
- browsers (except FireFox)
  - Cleanup WordPress meta tags - removes lots of WP native tags included in the header region.
- - Compress HTML output - very basic minification of output HTML. This does not combine or minify included files. Will
- reduce size of output HTML by around 3-5%
  - Use Excerpts as Meta Description - WordPress automatically takes the first 55 words of a post or page to create an
  excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
  description tag. If you have an alternative method of generating this meta tag, you should disable this option.
@@ -76,6 +69,23 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+= 1.1.0 =
+Security and stability update:
+Thank you to all users submitting feedback.
+ - Javascript loading has been combined, with a simplified control. Now you have the option of deferring JS to after
+pageload, moving scripts to the footer, or both, or neither.
+ - Cache control has been improved to bust the cache for logged in users, so people adding content or editing can see
+ their changes reflected without doing a hard refresh.
+ - This release sees the removal of:
+   - Retina Images - the theme instead uses WordPress native multiimage display.
+   - Update jQuery - WP core is updating jQuery through the next few releases, this feature is no longer required.
+   - LazyLoading - as of WP 5.5. this is a native function so does not need to be in a plugin.
+   - Compress HTML - this was breaking data reporting from Google Tag Manager and also impacted some javascript triggers
+   .
+
+= 1.0.5.1 =
+Maintenance release
 
  = 1.0.5 =
  Bugfixes:

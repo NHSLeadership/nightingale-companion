@@ -6,8 +6,8 @@
 * Author: Nick Summerfield, NHS Leadership Academy
 * License: GPL v3
 * Requires at least: 5.0
-* Tested up to: 5.4
-* Version: 1.0.5
+* Tested up to: 5.5
+* Version: 1.1.0
 *
 * @package nightingale-companion
 */
@@ -64,23 +64,18 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
  */
 function nightingale_companion_default_values() {
 	$defaults = array(
-		'retina_images'                => 'on', // EnableRetina Images
 		'loadcss'                      => 'on', // Enable Load CSS
 		'instantpage'                  => 'on', // Enable InstantPage
-		'defer_js'                     => 'on', // Enable Defer JS
+		'javascript_loading'           => 'none', // Enable Defer JS
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
-		'lazy_loading'                 => 'on', // Enable LazyLoading
 		'disable_emojis'               => 'on', // Disable Emojis
 		'cleanup_meta'                 => 'on', // Cleanup WP meta tags
-		'compress_html'                => 'on', // Basic Minification of Output
 		'excerpts_as_meta_description' => 'on', // Simple Meta Description Population
-		'move_scripts_to_footer'       => 'on', // Sending Scripts to the Footer
 		'style_login_page'             => 'on', // Add styling to login page to match rest of theme
 		'enable_emergency_alert'       => 'on', // Add functionality to show emergency alert (options get added to theme customiser)
 		'show_author_bio'              => 'off', // show an author bio section below posts
 		'show_author_posts'            => 'off', // show other posts by author below posts
 		'hide_featured_images'         => 'off', // suppress featured images on individual pages
-		'update_jquery'                => 'off', // update jQuery to 3.4.1
 		'sharing_buttons'              => 'none', // enable sharing buttons on posts
 		'sharing_title'                => 'Share this:', // set title of sharing buttons region
 	);
@@ -108,9 +103,6 @@ if ( ( isset( $nightingale_companion_options[ 'excerpts_as_meta_description' ] )
 	require_once( plugin_dir_path( __FILE__ ) . 'functionality/simple-meta.php' );
 }
 
-if ( ( isset( $nightingale_companion_options[ 'update_jquery' ] ) ) && ( $nightingale_companion_options[ 'update_jquery' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'functionality/jquery-update.php' );
-}
 
 /**
  * Add the plugin settings link to the plugins screen for quick access.

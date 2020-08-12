@@ -6,9 +6,7 @@
  * @copyright NHS Leadership Academy, Tony Blacker
  * @version   1.0 25th June 2020
  */
-if ( ( isset( $nightingale_companion_options[ 'retina_images' ] ) ) && ( $nightingale_companion_options[ 'retina_images' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'retina-images.php' );
-}
+
 
 if ( ( isset( $nightingale_companion_options[ 'style_login_page' ] ) ) && ( $nightingale_companion_options[ 'style_login_page' ] === 'on' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'login.php' );
@@ -56,7 +54,7 @@ if ( ( isset( $nightingale_companion_options[ 'enable_emergency_alert' ] ) ) && 
 		}
 
 		/**
-		 * jQuery routine to take the output emergency alert and insert it into the corret area of the output html
+		 * jQuery routine to take the output emergency alert and insert it into the correct area of the output html
 		 *
 		 * @since 1.0.0
 		 * @hook  nhsblocks_emergency_footer

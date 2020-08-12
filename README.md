@@ -17,9 +17,6 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
 ## Additional Features this Plugin provides ##
 
  ### Display Options ###
- - Retina Images - this enables your site to serve double quality images for retina display devices, and makes multiple
- sizes for each of the sizes configured on your site. This all happens automatically in the background and will improve
- the look of your thumbnails, images and banners across your site for retina capable screens.
  - Disable Emojis - this disables the default emoji packages that ship with WordPress, which load on every single page
  of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.
  - Style login page - Modified the login page to use the theme design and layout
@@ -34,9 +31,7 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
  description tag. If you have an alternative method of generating this meta tag, you should disable this option.
  - Cleanup meta - removes lots of WP native tags included in the header region.
- - Update jQuery - USE WITH CAUTION. This updates the jQuery for your WordPress to 3.4.1. The admin side is
-  unaffected. If enabling this, test ALL functionality of your site, as some plugin functionality for other plugins
-   on your site may cease to work as expected.
+ 
  
  ### Performance ###
  - [LoadCSS](https://github.com/filamentgroup/loadCSS) - this uses the loadcss javascript library which defers loading of
@@ -44,15 +39,14 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  - [InstantPage](https://github.com/instantpage/instant.page) - this uses the instantpage javascript library to trigger
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
- - DeferJS - adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
+ - Javascript Loading - Defaultss to native WP loading, but you can choose to instead:
+   - adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
  after HTML has loaded in.
+   - Move Scripts to Footer - move the javascript and stylesheet files to the footer. This enables visible display of the page quicker.
+   - Both the above.
  - Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
  seconds that this local cache should be stored, defaulting to 43200 (12 hours)
- - LazyLoading - adds a tag to all media resources to use native lazyloading. This will work on all modern
- browsers (except FireFox)
- - Compress HTML output - very basic minification of output HTML. This does not combine or minify included files. Will
- reduce size of output HTML by around 3-5%
- - Move Scripts to Footer - move the javascript and stylesheet files to the footer. This enables visible display of the page quicker.
+
  
  
  ### Blog Settings ###

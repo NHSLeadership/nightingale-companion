@@ -24,12 +24,6 @@ $pages       = array(
 			'display-options'     => array(
 				'title'  => __( 'Display Options', 'nightingale' ),
 				'fields' => array(
-					'retina_images'   => array(
-						'title'   => 'Retina Images',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Enable retina display using retina.js?',
-					),
 					'disable_emojis'  => array(
 						'title'   => 'Disable Emojis',
 						'type'    => 'checkbox',
@@ -82,12 +76,6 @@ $pages       = array(
 						'checked' => 'true',
 						'text'    => 'Cleanup the WP meta tags added by default to remove unused items',
 					),
-					'update_jquery'     => array(
-						'title'   => 'Update jQuery',
-						'type'    => 'checkbox',
-						'checked' => '',
-						'text'    => 'Update the core jQuery to 3.4.1. Use with caution, this may break certain features with other plugins. Enable at your own risk.',
-					),
 				),
 			),
 			'performance-options' => array(
@@ -106,34 +94,21 @@ $pages       = array(
 						'text'    => 'Enable instantpage library - this starts a page loading when a mouse hovers over it which improves User Experience',
 					),
 					'defer_js'      => array(
-						'title'   => 'Defer JS',
-						'type'    => 'checkbox',
-						'checked' => 'true',
+						'title'   => 'Javascript Loading',
 						'text'    => 'Defer loading of JS to increase speed of visible page load. (Note this does not actually improve overall speed, just the speed of loading for users to be able to interact with the screen)',
+						'type'    => 'select',
+						'choices' => array(
+							'none' => 'Leave as standard',
+							'defer_js' => 'Defer JS',
+							'footer' => 'Move to Footer',
+							'both' => 'Both',
+						),
 					),
 					'browser_cache' => array(
 						'title' => 'Browser Cache',
 						'type'  => 'text',
 						'value' => '43200',
 						'text'  => 'Set Browser Cache duration in seconds. 300 = 5 minutes, 43200 = 12 hours. Think very carefully before setting to a higher value than 12 hours!',
-					),
-					'lazyloading'   => array(
-						'title'   => 'Lazy Loading',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => ' Lazy Loading delays resources loading until the point they are in display. This improves performance on pages with images and videos.',
-					),
-					'compress_html' => array(
-						'title'   => 'Compress HTML',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Basic compression of output html (removes white space in the raw html that is sent to the browser)',
-					),
-					'move_scripts'  => array(
-						'title'   => 'Move Scripts to Footer',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Send scripts and styles to the footer. This may cause issues with other plugins. If this occurs, please disable.',
 					),
 				),
 			),

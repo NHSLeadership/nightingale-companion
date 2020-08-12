@@ -6,7 +6,7 @@
 /vendor
 /hookdocs
 
-
+nightingale-companion.zip
 .distignore
 .gitignore
 composer.json

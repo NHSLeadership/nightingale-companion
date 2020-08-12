@@ -67,8 +67,8 @@ function nightingale_companion_postsby_author( $content ) {
 		$content = $content . $output;
 	}
 
-	return $content;
 	wp_reset_postdata();
+	return $content;
 }
 
 add_action( 'the_content', 'nightingale_companion_postsby_author' );
