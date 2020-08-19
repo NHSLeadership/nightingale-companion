@@ -76,3 +76,6 @@ if ( ( isset( $nightingale_companion_options[ 'enable_emergency_alert' ] ) ) && 
 	}
 }
 
+if ( ( isset( $nightingale_companion_options[ 'audio_playback' ] ) ) && ( $nightingale_companion_options[ 'audio_playback' ] === 'on' ) ) {
+	require_once( plugin_dir_path( __FILE__ ) . 'audio-playback.php' );
+}
