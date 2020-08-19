@@ -59,6 +59,12 @@ $pages       = array(
 						'value' => 'Share this:',
 						'text'  => 'The text to show before your sharing buttons',
 					),
+					'audio_playback' => array(
+						'title'   => 'Audio Playback',
+						'type'    => 'checkbox',
+						'checked' => 'false',
+						'text'    => 'Add speed control buttons to audio playback HTML5 elements - this only applies to audio files added using the native WP embed, not to third party audio player plugins.',
+					),
 				),
 			),
 			'function-options'    => array(

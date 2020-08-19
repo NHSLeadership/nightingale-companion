@@ -1,6 +1,6 @@
 {
   "name": "nhsleadership/nightingale-companion",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "dist": {
     "url": "https://github.com/NHSLeadership/nightingale-companion/archive/master.zip",
     "type": "zip"
