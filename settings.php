@@ -11,8 +11,9 @@
  * Code adding in the options page for the companion plugin that will allow the user to chose which elements of the
  * plugin are activated.
  */
-
-require_once( 'RationalOptionPages.php' );
+if ( ! class_exists( 'RationalOptionPages' ) ) {
+	require_once( 'RationalOptionPages.php' );
+}
 
 // this array is made up using the guide at https://github.com/jeremyHixon/RationalOptionPages
 $pages       = array(
@@ -58,6 +59,12 @@ $pages       = array(
 						'type'  => 'text',
 						'value' => 'Share this:',
 						'text'  => 'The text to show before your sharing buttons',
+					),
+					'audio_playback' => array(
+						'title'   => 'Audio Playback',
+						'type'    => 'checkbox',
+						'checked' => 'false',
+						'text'    => 'Add speed control buttons to audio playback HTML5 elements - this only applies to audio files added using the native WP embed, not to third party audio player plugins.',
 					),
 				),
 			),
