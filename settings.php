@@ -11,8 +11,9 @@
  * Code adding in the options page for the companion plugin that will allow the user to chose which elements of the
  * plugin are activated.
  */
-
-require_once( 'RationalOptionPages.php' );
+if ( ! class_exists( 'RationalOptionPages' ) ) {
+	require_once( 'RationalOptionPages.php' );
+}
 
 // this array is made up using the guide at https://github.com/jeremyHixon/RationalOptionPages
 $pages       = array(
