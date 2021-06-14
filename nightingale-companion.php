@@ -64,9 +64,7 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
  */
 function nightingale_companion_default_values() {
 	$defaults = array(
-		'loadcss'                      => 'on', // Enable Load CSS
 		'instantpage'                  => 'on', // Enable InstantPage
-		'javascript_loading'           => 'none', // Enable Defer JS
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
 		'disable_emojis'               => 'on', // Disable Emojis
 		'cleanup_meta'                 => 'on', // Cleanup WP meta tags
