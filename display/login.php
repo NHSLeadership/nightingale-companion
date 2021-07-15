@@ -42,6 +42,9 @@ function nightingale_companion_login_logo_url() {
 
 add_filter( 'login_headerurl', 'nightingale_companion_login_logo_url' );
 
+// apply site colour to the login page as well.
+add_filter( 'login_body_class', 'nightingale_custom_page_colour' );
+
 /**
  * Add in extra divs around the header output.
  */
