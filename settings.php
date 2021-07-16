@@ -25,12 +25,6 @@ $pages       = array(
 			'display-options'     => array(
 				'title'  => __( 'Display Options', 'nightingale' ),
 				'fields' => array(
-					'disable_emojis'  => array(
-						'title'   => 'Disable Emojis',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Take WordPress emoji library out of being auto loaded',
-					),
 					'login_styling'   => array(
 						'title'   => 'Style Login Page',
 						'type'    => 'checkbox',
@@ -88,34 +82,17 @@ $pages       = array(
 			'performance-options' => array(
 				'title'  => __( 'Performance Options', 'nightingale' ),
 				'fields' => array(
-					'loadcss'       => array(
-						'title'   => 'LoadCSS',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Enable loadcss library to asynchronously load css files and improve performance',
-					),
 					'instantpage'   => array(
 						'title'   => 'InstantPage',
 						'type'    => 'checkbox',
 						'checked' => 'true',
 						'text'    => 'Enable instantpage library - this starts a page loading when a mouse hovers over it which improves User Experience',
 					),
-					'defer_js'      => array(
-						'title'   => 'Javascript Loading',
-						'text'    => 'Defer loading of JS to increase speed of visible page load. (Note this does not actually improve overall speed, just the speed of loading for users to be able to interact with the screen)',
-						'type'    => 'select',
-						'choices' => array(
-							'none' => 'Leave as standard',
-							'defer_js' => 'Defer JS',
-							'footer' => 'Move to Footer',
-							'both' => 'Both',
-						),
-					),
-					'browser_cache' => array(
-						'title' => 'Browser Cache',
-						'type'  => 'text',
-						'value' => '43200',
-						'text'  => 'Set Browser Cache duration in seconds. 300 = 5 minutes, 43200 = 12 hours. Think very carefully before setting to a higher value than 12 hours!',
+					'disable_emojis'  => array(
+						'title'   => 'Disable Emojis',
+						'type'    => 'checkbox',
+						'checked' => 'true',
+						'text'    => 'Take WordPress emoji library out of being auto loaded',
 					),
 				),
 			),

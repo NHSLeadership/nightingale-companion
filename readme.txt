@@ -3,8 +3,8 @@ Contributors: Nick-Summerfield, tblacker7
 Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.0
-Tested up to: 5.5
-Stable tag: 1.1.1
+Tested up to: 5.8
+Stable tag: 1.2
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -21,21 +21,19 @@ enabled by default on installation but can be switched off easily via the admin 
 
  - Disable Emojis - this disables the default emoji packages that ship with WordPress, which load on every single page
  of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.
- - LoadCSS - this uses the loadcss javascript library (https://github.com/filamentgroup/loadCSS) which defers loading of
-  your stylesheets to after the main html has loaded. This increases the speed of time to interaction for your pages
+ - LoadCSS - Removed as caused a number of conflicts with some WP plugins.
  - InstantPage - this uses the instantpage javascript library (https://github.com/instantpage/instant.page) to trigger
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
- - DeferJS - adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
- after HTML has loaded in. Alternatively, you can simply move your scripts to the footer, or you can do both.
- - Set Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
- seconds that this local cache should be stored, defaulting to 43200 (12 hours)
+ - DeferJS - Removed as caused a number of conflicts with some WP plugins.
+ - Set Browser Cache - Removed as caused a number of conflicts with some WP plugins. (Recommend using CloudFlare or
+ similar for better results)
  - Cleanup WordPress meta tags - removes lots of WP native tags included in the header region.
  - Use Excerpts as Meta Description - WordPress automatically takes the first 55 words of a post or page to create an
  excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
  description tag. If you have an alternative method of generating this meta tag, you should disable this option.
- - Modified the login page to use the theme design and layout (this option is not switchable at present)
- - Adds the emergency alert header to the theme customiser (this option is not switchable at present)
+ - Modified the login page to use the theme design and layout
+ - Adds the emergency alert header to the theme customiser
 
 
 == Installation ==
@@ -69,6 +67,14 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+= 1.2 =
+Maintenance release:
+ - Removed LoadCSS, defer JS to footer and cache options. All three were minor performance improvements but introduced
+ bugs with other plugins (notably LearnDash, BuddyBoss and Events Calendar). With good server configuration and usage of
+ tools like CloudFlare better results can be achieved without damaging functionality of third party plugins.
+ - Corrected issue where styled login page would not inherit site colour settings from theme. It now does.
+ - updated various dependancy libraries for security and stability.
 
 = 1.1.1 =
 Added audio playback speed controls (under display section of settings)

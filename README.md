@@ -34,17 +34,19 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  
  
  ### Performance ###
- - [LoadCSS](https://github.com/filamentgroup/loadCSS) - this uses the loadcss javascript library which defers loading of
+ - REMOVED - [LoadCSS](https://github.com/filamentgroup/loadCSS) - this uses the loadcss javascript library which defers
+  loading of
   your stylesheets to after the main html has loaded. This increases the speed of time to interaction for your pages
  - [InstantPage](https://github.com/instantpage/instant.page) - this uses the instantpage javascript library to trigger
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
- - Javascript Loading - Defaultss to native WP loading, but you can choose to instead:
+ - REMOVED - Javascript Loading - Defaultss to native WP loading, but you can choose to instead:
    - adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
  after HTML has loaded in.
    - Move Scripts to Footer - move the javascript and stylesheet files to the footer. This enables visible display of the page quicker.
    - Both the above.
- - Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is number of
+ - REMOVED - Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is
+  number of
  seconds that this local cache should be stored, defaulting to 43200 (12 hours)
 
  
