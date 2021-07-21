@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>WordPress Companion Plugin for Nightingale Theme</h1>
+<p>This repository houses the companion plugin for the Nightingale WordPress theme from NHS Leadership Academy.
+This is a standalone plugin, but is intended to be used in concert with the
+<a href="https://wordpress.org/themes/nightingale">Nightingale</a> theme. The plugin and theme together form the WordPress deployment of the NHSUK Frontend design. We would also recommend the <a href="https://github.com/NHSLeadership/nhsblocks">NHSBlocks</a> plugin.</p>
+<h2>Requirements</h2>
+<p>This plugin requires minimum Wordpress 5.0 and PHP 5.6 (PHP 7 or higher is preferred). It also requires (and checks
+) that the Nightingale theme is installed and active.</p>
+<h2>Deployment Instructions</h2>
+<p>Download the <code>nightingale-companion.zip</code> from this repository. Install this to your wordpress via admin &gt; plugins &gt; add
+new &gt; upload. Go to your wordpress admin, and activate the Nightingale Companion plugin. By default all options
+within the plugin will be enabled. To modify the options, please go to your admin and click Settings &gt; Nightingale
+Companion. To disable any feature simply untick the box (or in the case of browser cache set the number to 0)</p>
+<h2>Additional Features this Plugin provides</h2>
+<h3>Display Options</h3>
+<ul>
+<li>Disable Emojis - this disables the default emoji packages that ship with WordPress, which load on every single page
+of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.</li>
+<li>Style login page - Modified the login page to use the theme design and layout</li>
+<li>Enable Emergency Alert - Adds the emergency alert header to the theme customiser. Even when enabled, you will still need to add content via themes &gt; customiser to make it display on your site.</li>
+<li>Sharing buttons. Choose whether you would like sharing buttons showing on individual posts and pages. You can
+select to not show these, show them at the top of your content, below your content or both. This is a global setting.</li>
+<li>Sharing Title - choose what text to show before the sharing buttons. Default is <code>Share This:</code></li>
+</ul>
+<h3>Functionality</h3>
+<ul>
+<li>Use Excerpts as Meta Description - WordPress automatically takes the first 55 words of a post or page to create an
+excerpt (or you can manually add your own per page/post). This modification uses this excerpt to populate the meta
+description tag. If you have an alternative method of generating this meta tag, you should disable this option.</li>
+<li>Cleanup meta - removes lots of WP native tags included in the header region.</li>
+</ul>
+<h3>Performance</h3>
+<ul>
+<li>REMOVED - <a href="https://github.com/filamentgroup/loadCSS">LoadCSS</a> - this uses the loadcss javascript library which defers
+loading of
+your stylesheets to after the main html has loaded. This increases the speed of time to interaction for your pages</li>
+<li><a href="https://github.com/instantpage/instant.page">InstantPage</a> - this uses the instantpage javascript library to trigger
+pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
+seconds pre click are actually being used to start loading the next page.</li>
+<li>REMOVED - Javascript Loading - Defaultss to native WP loading, but you can choose to instead:
+<ul>
+<li>adds a defer tag to all javascript (excluding jQuery and loadcss) to defer loading of js resources until
+after HTML has loaded in.</li>
+<li>Move Scripts to Footer - move the javascript and stylesheet files to the footer. This enables visible display of the page quicker.</li>
+<li>Both the above.</li>
+</ul>
+</li>
+<li>REMOVED - Browser Cache - this is a setting to tell users' browser to cache locally the content. The value is
+number of
+seconds that this local cache should be stored, defaulting to 43200 (12 hours)</li>
+</ul>
+<h3>Blog Settings</h3>
+<ul>
+<li>Hide Featured Images - this will prevent featured images from being displayed on individual posts and pages
+. Global setting.</li>
+<li>Show Author Bio - this adds an author bio section to the bottom of posts, including a link to all posts by author.</li>
+<li>Show Author Posts - displays the most recent 6 posts from the author at the bottom of post.</li>
+</ul>
+<h2>Development Instructions</h2>
+<p>To develop your own modifications, you will need to download the full <a href="https://github.com/NHSLeadership/nightingale-companion">repo from GitHub</a> - you should be in your <code>wp-content/plugins</code> folder.
+Once you have this locally, you will need to change directory to <code>wp-content/plugins/nightingale-companion</code>.</p>
+<p>We have structured the plugin so that features are divided into their respective folders of <code>display</code>, <code>functionality </code> and <code>performance</code>. All features have a corresponding setting which should be added to settings.php, and where
+applicable are also wrapped in qualifying if statements (ie if a feature depends on an installed plugin, you should
+check the plugin exists and is active around the include statement).</p>
+<p>Any improvements, bug fixes or amendments should also be submitted back as pull requests to this GitHub repo so that the
+whole community can benefit from the work.</p>
+<h2>Credits</h2>
+<p>This plugin was written by Nick Summerfield, NHS Leadership Academy Digital Delivery Team. It was inspired by a
+session with Harry Roberts <a href="https://csswizardry.com/">csswizardry</a>, and uses code from
+<a href="https://github.com/filamentgroup/loadCSS">loadCSS</a>, <a href="https://github.com/instantpage/instant.page">instantPages</a>, as
+well as multiple WordPress and Stack Exchange suggestions for code improvement.</p>
+<h2>Future Intentions</h2>
+<ul>
+<li>merge stylsheets to one file and compress</li>
+<li>add in rich snippets for things such as opening hours, address, alumni etc. Have these configurable to be either per page or site wide (ie a hospital may have different opening hours for different departments)</li>
+<li>add in status ribbon (to denote beta/alpha/in development etc) - this is non NHSUK so undecided whether to put this into our own LA plugin or this one</li>
+<li>subpages display - we currently have this as a shortcode, would be relatively easy to add this in (i.e. - show subpages as clickable panels on parent page with excerpts showing...)</li>
+<li>cookie control...?</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="nightingale_companion_activate.html">nightingale_companion_activate</a></li><li><a href="nightingale_companion_default_values.html">nightingale_companion_default_values</a></li><li><a href="nightingale_companion_load_textdomain.html">nightingale_companion_load_textdomain</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Jul 21 2021 11:23:10 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
