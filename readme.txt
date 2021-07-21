@@ -75,6 +75,7 @@ Maintenance release:
  tools like CloudFlare better results can be achieved without damaging functionality of third party plugins.
  - Corrected issue where styled login page would not inherit site colour settings from theme. It now does.
  - updated various dependancy libraries for security and stability.
+ - tested up to WordPress 5.8
 
 = 1.1.1 =
 Added audio playback speed controls (under display section of settings)
