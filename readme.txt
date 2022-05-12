@@ -3,8 +3,8 @@ Contributors: Nick-Summerfield, tblacker7
 Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.0
-Tested up to: 5.8
-Stable tag: 1.2
+Tested up to: 5.9
+Stable tag: 1.3
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -67,6 +67,10 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+ = 1.3.0 =
+
+ -Updated Dependancies and tested on new WP version
 
 = 1.2 =
 Maintenance release:
