@@ -1,7 +1,6 @@
 <?php
 /**
- * Forked from:
- * Plugin Name: Media Playback Speed
+ * Forked from: Media Playback Speed (Forked)
  * Description: Appends playback buttons to the Audio Player, Video Player & PLaylist shortcodes. Based on original by Daron Spence.
  * Author: LewisCowles
  * Version: 1.1.5
