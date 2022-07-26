@@ -68,6 +68,10 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 
  == Changelog ==
 
+ = 1.3.1 =
+
+ -Fix for E_ERROR when upgrading from PHP 7 to PHP 8
+
  = 1.3.0 =
 
  -Updated Dependancies and tested on new WP version
