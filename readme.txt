@@ -3,8 +3,8 @@ Contributors: Nick-Summerfield, tblacker7
 Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.0
-Tested up to: 5.9
-Stable tag: 1.3
+Tested up to: 6.0
+Stable tag: 1.3.1
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
