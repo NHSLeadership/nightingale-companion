@@ -4,7 +4,7 @@ Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.0
 Tested up to: 6.0
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -67,6 +67,11 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+ = 1.3.2 =
+
+ -Fix for E_ERROR when upgrading from PHP 7 to PHP 8
+ -Previous release issue fix  
 
  = 1.3.1 =
 
