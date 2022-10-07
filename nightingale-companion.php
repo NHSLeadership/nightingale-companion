@@ -7,7 +7,7 @@
 * License: GPL v3
 * Requires at least: 5.0
 * Tested up to: 6.0
-* Version: 1.3.2
+* Version: 1.3.3
 *
 * @package nightingale-companion
 */
@@ -79,7 +79,7 @@ function nightingale_companion_default_values() {
 		'sharing_buttons'              => 'none', // enable sharing buttons on posts
 		'sharing_title'                => 'Share this:', // set title of sharing buttons region
 	);
-	if ( 1 === $wpmu ) {
+	if ( is_multisite() ) {
 		if ( ! get_option( 'nightingale-companion' ) ) {
 			add_site_option( 'nightingale-companion', $defaults, '', 'yes' );
 		}
