@@ -79,7 +79,7 @@ function nightingale_companion_default_values() {
 		'sharing_buttons'              => 'none', // enable sharing buttons on posts
 		'sharing_title'                => 'Share this:', // set title of sharing buttons region
 	);
-	if ( 1 === $wpmu ) {
+	if ( is_multisite() ) {
 		if ( ! get_option( 'nightingale-companion' ) ) {
 			add_site_option( 'nightingale-companion', $defaults, '', 'yes' );
 		}
