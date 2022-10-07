@@ -4,7 +4,7 @@
  *
  * @package   nightingale-companion
  * @copyright NHS Leadership Academy, Nick Summerfield & Tony Blacker
- * @version   1.3.3 07 Oct 2022
+ * @version   1.3.4 07 Oct 2022
  */
 
 /**
