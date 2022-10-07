@@ -68,6 +68,10 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 
  == Changelog ==
 
+ = 1.3.3 =
+
+ -Fix for plugin errors on activation 
+
  = 1.3.2 =
 
  -Fix for E_ERROR when upgrading from PHP 7 to PHP 8
