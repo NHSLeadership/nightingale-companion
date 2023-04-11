@@ -6,8 +6,5 @@
     "type": "zip"
   },
   "description": "Companion plugin for Nightingale theme",
-  "type": "wordpress-plugin",
-  "require": {
-    "composer/installers": "^1.3"
-  }
+  "type": "wordpress-plugin"
 }
