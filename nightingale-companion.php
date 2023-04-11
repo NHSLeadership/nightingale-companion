@@ -7,7 +7,7 @@
 * License: GPL v3
 * Requires at least: 5.0
 * Tested up to: 6.0
-* Version: 1.3.4
+* Version: 1.3.5
 *
 * @package nightingale-companion
 */
