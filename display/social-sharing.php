@@ -11,11 +11,11 @@
 
 function nightingale_companion_sharing_caring( $content ) {
 	global $nightingale_companion_options;
-	if ( ! empty( $nightingale_companion_options ) ) :
+	if ( ! empty( $nightingale_companion_options ) ) {
 		$post_type = get_post_type();
 		$include   = array( 'post' );
 		$output    = '';
-		if ( is_single() && in_array( $post_type, $include ) ) :
+		if ( is_single() && in_array( $post_type, $include ) ) {
 			if ( isset( $nightingale_companion_options['sharing_title'] ) ) {
 				$output .= '<div class="nhsuk-panel nhsuk-panel--grey"><!-- AddToAny BEGIN -->
 					<h4 style="float: left;">' . $nightingale_companion_options['sharing_title'] . '&nbsp;&nbsp;</h4><div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -32,7 +32,7 @@ function nightingale_companion_sharing_caring( $content ) {
 					<!-- AddToAny END -->
 					</div>';
 			}
-		endif;
+		}
 		$position = isset( $nightingale_companion_options['sharing_buttons'] ) ? $nightingale_companion_options['sharing_buttons'] : null;
 		if ( 'top' === $position ) {
 			$content = $output . $content;
@@ -45,7 +45,7 @@ function nightingale_companion_sharing_caring( $content ) {
 			$content = $content . '<script async src="https://static.addtoany.com/menu/page.js"></script>';
 		}
 		return $content;
-	endif;
+	}
 }
 
 add_action( 'the_content', 'nightingale_companion_sharing_caring' );
