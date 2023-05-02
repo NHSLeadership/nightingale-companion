@@ -7,7 +7,7 @@
 * License: GPL v3
 * Requires at least: 5.0
 * Tested up to: 6.0
-* Version: 1.3.5
+* Version: 1.3.6
 *
 * @package nightingale-companion
 */
@@ -65,7 +65,6 @@ register_activation_hook( __FILE__, 'nightingale_companion_activate' );
 function nightingale_companion_default_values() {
 	$defaults = array(
 		'loadcss'                      => 'on', // Enable Load CSS
-		'instantpage'                  => 'on', // Enable InstantPage
 		'javascript_loading'           => 'none', // Enable Defer JS
 		'browser_cache'                => '43200', // Set Browser Cache to 12 hours
 		'disable_emojis'               => 'on', // Disable Emojis

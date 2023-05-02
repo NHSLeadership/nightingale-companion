@@ -82,12 +82,6 @@ $pages       = array(
 			'performance-options' => array(
 				'title'  => __( 'Performance Options', 'nightingale' ),
 				'fields' => array(
-					'instantpage'   => array(
-						'title'   => 'InstantPage',
-						'type'    => 'checkbox',
-						'checked' => 'true',
-						'text'    => 'Enable instantpage library - this starts a page loading when a mouse hovers over it which improves User Experience',
-					),
 					'disable_emojis'  => array(
 						'title'   => 'Disable Emojis',
 						'type'    => 'checkbox',

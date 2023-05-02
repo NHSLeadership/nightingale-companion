@@ -37,7 +37,7 @@ Download the `nightingale-companion.zip` from this repository. Install this to y
  - REMOVED - [LoadCSS](https://github.com/filamentgroup/loadCSS) - this uses the loadcss javascript library which defers
   loading of
   your stylesheets to after the main html has loaded. This increases the speed of time to interaction for your pages
- - [InstantPage](https://github.com/instantpage/instant.page) - this uses the instantpage javascript library to trigger
+ - REMOVED - [InstantPage](https://github.com/instantpage/instant.page) - this uses the instantpage javascript library to trigger
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
  - REMOVED - Javascript Loading - Defaultss to native WP loading, but you can choose to instead:

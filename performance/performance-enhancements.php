@@ -9,10 +9,6 @@
 // load css stuff.
 // removed
 
-// instantpage stuff.
-if ( ( isset( $nightingale_companion_options[ 'instantpage' ] ) ) && ( $nightingale_companion_options[ 'instantpage' ] === 'on' ) ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'instantpage.php' );
-}
 
 // defer JS loading to footer.
 // removed

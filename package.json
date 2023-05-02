@@ -1,6 +1,6 @@
 {
   "name": "nightingale-companion",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "license": "GPL-3.0-or-later",
   "main": "nightingale-companion.php",
   "scripts": {
