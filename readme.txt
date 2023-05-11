@@ -4,7 +4,7 @@ Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
 Requires at least: 5.0
 Tested up to: 6.0
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -22,7 +22,7 @@ enabled by default on installation but can be switched off easily via the admin 
  - Disable Emojis - this disables the default emoji packages that ship with WordPress, which load on every single page
  of your site and impact performance and speed. This is a tiny tweak that has an incremental benefit.
  - LoadCSS - Removed as caused a number of conflicts with some WP plugins.
- - InstantPage - this uses the instantpage javascript library (https://github.com/instantpage/instant.page) to trigger
+ - InstantPage - Removed as causing multiple issues on the sites.
  pages preloading when a user hovers their mouse over links. This does not, in fact increase load times but does appear perception of load times as those few partial
   seconds pre click are actually being used to start loading the next page.
  - DeferJS - Removed as caused a number of conflicts with some WP plugins.
@@ -67,6 +67,10 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+ = 1.3.6 =
+
+ -Removed InstantPage
 
  = 1.3.5 =
 
