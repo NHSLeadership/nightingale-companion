@@ -21,9 +21,19 @@
 					<h2 class="nhsuk-global-alert__heading">
 						<span class="nhsuk-u-visually-hidden">Alert: </span><?php echo esc_html( get_theme_mod( 'emergency_heading' ) ); ?>
 					</h2>
-					<p class="nhsuk-global-alert__message"><?php echo esc_html( get_theme_mod( 'emergency_content' ) ); ?>
+<p class="nhsuk-global-alert__message"><?php echo esc_html( get_theme_mod( 'emergency_content' ) ); ?>
+
+	<?php
+					if ( ( get_theme_mod( 'emergency_link' ) !== '' ) ) {
+						?>
 						<a href="<?php echo esc_html( get_theme_mod( 'emergency_link' ) ); ?>"><?php echo esc_html( get_theme_mod( 'emergency_link_title' ) ); ?></a>
-					</p>
+					
+						<?
+						
+					}
+					?>
+</p>
+					
 					<?php
 					if ( ( get_theme_mod( 'emergency_date_on' ) === 'yes' ) && ( get_theme_mod( 'emergency_date' ) !== 'dd/mm/yyyy' ) ) {
 						$date = strtotime( get_theme_mod( 'emergency_date' ) );
