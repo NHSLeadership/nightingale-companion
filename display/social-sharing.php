@@ -40,6 +40,8 @@ function nightingale_companion_sharing_caring( $content ) {
 			$content = $content . $output;
 		} elseif ( 'both' === $position ) {
 			$content = $output . $content . $output;
+		} else {
+			$output = false;
 		}
 		if ( ! empty( $output ) ) {
 			$content = $content . '<script async src="https://static.addtoany.com/menu/page.js"></script>';
