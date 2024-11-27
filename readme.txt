@@ -71,6 +71,7 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  = 1.3.7 =
 
  -Fix for floating social icons
+ -Security update
 
  = 1.3.6 =
 
