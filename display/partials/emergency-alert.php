@@ -13,7 +13,7 @@
  */
 
 ?>
-<div class="nhsuk-global-alert" id="nhsuk-global-alert">
+<div role="alert" aria-label="Global Alert" class="nhsuk-global-alert" id="nhsuk-global-alert">
 	<div class="nhsuk-width-container">
 		<div class="nhsuk-grid-row">
 			<div class="nhsuk-grid-column-full">
@@ -21,8 +21,21 @@
 					<h2 class="nhsuk-global-alert__heading">
 						<span class="nhsuk-u-visually-hidden">Alert: </span><?php echo esc_html( get_theme_mod( 'emergency_heading' ) ); ?>
 					</h2>
-					<p class="nhsuk-global-alert__message"><?php echo esc_html( get_theme_mod( 'emergency_content' ) ); ?>
-						<a href="<?php echo esc_html( get_theme_mod( 'emergency_link' ) ); ?>"><?php echo esc_html( get_theme_mod( 'emergency_link_title' ) ); ?></a>
+					<p class="nhsuk-global-alert__message">
+						<?php
+						echo esc_html( get_theme_mod( 'emergency_content' ) );
+						$emergency_link       = get_theme_mod( 'emergency_link' );
+						$emergency_link_title = get_theme_mod( 'emergency_link_title' );
+						if ( ! empty( $emergency_link ) ) {
+						?>
+						<a href="<?php echo esc_html( $emergency_link ); ?>">
+							<?php
+							echo ! empty( $emergency_link_title ) ? ( esc_html( $emergency_link_title ) ) : 'Further Info';
+							?>
+						</a>
+						<?php
+						}
+						?>
 					</p>
 					<?php
 					if ( ( get_theme_mod( 'emergency_date_on' ) === 'yes' ) && ( get_theme_mod( 'emergency_date' ) !== 'dd/mm/yyyy' ) ) {
