@@ -72,6 +72,7 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 
  -Fix for floating social icons
  -Security update
+ -Fixed emergency alert when last updated date not set
 
  = 1.3.6 =
 

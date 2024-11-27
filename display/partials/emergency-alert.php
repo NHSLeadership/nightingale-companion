@@ -27,7 +27,10 @@
 					<?php
 					if ( ( get_theme_mod( 'emergency_date_on' ) === 'yes' ) && ( get_theme_mod( 'emergency_date' ) !== 'dd/mm/yyyy' ) ) {
 						$date = strtotime( get_theme_mod( 'emergency_date' ) );
-						echo '<p class="nhsuk-global-alert__updated">Last Updated ' . esc_html( date( 'jS F Y', esc_attr( $date ) ) ) . '</p>';
+						if ( empty( $date ) ) {
+							$date = strtotime( gmdate( 'Y-m-d' ) );
+						}
+						echo '<p class="nhsuk-global-alert__updated">Last Updated ' . esc_html( gmdate( 'jS F Y', esc_attr( $date ) ) ) . '</p>';
 					}
 					?>
 				</div>
