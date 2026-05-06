@@ -5,7 +5,8 @@
 * Description: A plugin to add in more functionality to the theme
 * Author: Nick Summerfield, NHS Leadership Academy
 * License: GPL v3
-* Requires at least: 5.0
+* Requires at least: 6.4
+* Requires PHP: 8.2
 * Tested up to: 6.8
 * Version: 1.3.8
 *

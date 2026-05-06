@@ -2,7 +2,7 @@
 Contributors: Nick-Summerfield, tblacker7
 Tags: theme, nightingale, nhs
 Plugin Name:: Nightingale Companion
-Requires at least: 5.0
+Requires at least: 6.4
 Tested up to: 6.8
 Stable tag: 1.3.8
 Requires PHP: 8.2
@@ -67,6 +67,11 @@ with sample content on a site running the Nightingale theme, this plgin and the 
  we generated a 100 score in LightHouse for the metrics of Performance, Accessibility, Best Practices and SEO.
 
  == Changelog ==
+
+ = 1.3.7 =
+
+ -Adds login guard filter
+ -Security update
 
  = 1.3.7 =
 
