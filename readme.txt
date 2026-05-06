@@ -68,7 +68,7 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 
  == Changelog ==
 
- = 1.3.7 =
+ = 1.3.8 =
 
  -Adds login guard filter
  -Security update
