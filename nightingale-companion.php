@@ -7,7 +7,7 @@
 * License: GPL v3
 * Requires at least: 6.4
 * Requires PHP: 8.2
-* Tested up to: 6.8
+* Tested up to: 6.5.8
 * Version: 1.3.8
 *
 * @package nightingale-companion
