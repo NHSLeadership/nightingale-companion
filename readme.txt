@@ -72,6 +72,8 @@ with sample content on a site running the Nightingale theme, this plgin and the 
 
  -Adds login guard filter
  -Security update
+ -License update
+ -Adds SECURITY.md
 
  = 1.3.7 =
 
