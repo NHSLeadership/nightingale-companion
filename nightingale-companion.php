@@ -5,9 +5,10 @@
 * Description: A plugin to add in more functionality to the theme
 * Author: Nick Summerfield, NHS Leadership Academy
 * License: GPL v3
-* Requires at least: 5.0
-* Tested up to: 6.5
-* Version: 1.3.7
+* Requires at least: 6.4
+* Requires PHP: 8.2
+* Tested up to: 6.9.4
+* Version: 1.3.8
 *
 * @package nightingale-companion
 */
