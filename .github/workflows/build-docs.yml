@@ -15,7 +15,7 @@ jobs:
       - name: Use Node.js 10
         uses: actions/setup-node@v7
         with:
-          node-version: '10.x'
+          node-version: '10.24.1'
       - name: npm install, and build docs
         run: |
           npm install
