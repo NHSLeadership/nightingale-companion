@@ -19,7 +19,7 @@ jobs:
           npm install
           npm run build:docs
       - name: Deploy to GH Pages
-        uses: maxheld83/ghpages@v0.2.1
-        env:
-          BUILD_DIR: 'hookdocs/'
-          GH_PAT: ${{ secrets.GH_PAT }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./hookdocs
