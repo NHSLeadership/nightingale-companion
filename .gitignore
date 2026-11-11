@@ -1,6 +1,7 @@
 # ignore node dependency directories
 node_modules/
 hookdocs/
+vendor/
 
 # ignore log files and databases
 *.log
