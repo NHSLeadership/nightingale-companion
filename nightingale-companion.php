@@ -8,7 +8,7 @@
 * Requires at least: 6.4
 * Requires PHP: 8.2
 * Tested up to: 7.0.0
-* Version: 1.3.9
+* Version: 1.3.10
 *
 * @package nightingale-companion
 */
